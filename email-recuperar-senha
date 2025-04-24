@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tela de Cadastro</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <script defer src="cadastro"></script>
+  </head>
+  <body class="min-h-screen w-screen font-sans bg-gray-50">
+    <div class="flex min-h-screen">
+      <!-- Coluna da esquerda -->
+      <div class="flex w-1/2 items-center justify-center bg-gray-800">
+        <h1 class="text-7xl font-semibold text-white">Seja Bem-Vindo</h1>
+      </div>
+
+      <!-- Coluna da direita -->
+      <div class="flex w-1/2 flex-col items-center justify-center px-8 py-6 bg-gray-600 overflow-y-auto max-h-screen">
+        <!-- Título do formulário -->
+        <h2 class="mb-6 text-3xl font-semibold text-white">
+        Recupere sua senha        
+        </h2>
+
+        <h2 class="mb-6 text-1xl font-normal text-white">
+            Digite abaixo o endereço de email para recuperar sua senha.
+         </h2>
+        <form action="#" class="w-full max-w-sm">
+
+          <!-- Campo Senha -->
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-x2 font-bold text-gray-300">
+               Email de recuperação
+            </label>
+            <input
+              type="email"
+              id="re-email"
+              name="re-email"
+              placeholder="Email"
+              class="w-full rounded border  text-gray-700 border-gray-300 p-2 bg-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+              required
+            />
+            <span id="erroSenha" class="text-red-500 text-sm"></span>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="flex items-center gap-2 mb-4">
+            <button
+              type="submit"
+              class="inline-block w-full rounded bg-gray-700 px-4 py-2 text-white hover:bg-gray-900"
+            >
+              Próximo passo
+            </button>
+            
+          </div>
+
+
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
