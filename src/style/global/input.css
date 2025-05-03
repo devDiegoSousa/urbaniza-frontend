@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@tailwind utilities;
+
+@theme {
+    --color-dark-black: #121212;
+    --color-charcoal-black: #1E1E1E;
+    --color-sapphire-blue: #1F3A93;
+    --spacing: 8px;
+}
+
+
+body{
+    @apply bg-dark-black;
+}
+
+.navBar {
+    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-3 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
+
+    .cityLogo {
+        @apply hidden lg:flex;
+      }
+
+    .ul-main-nav {
+      @apply flex lg:flex-col gap-3;
+    }
+
+    .ul-config-nav {
+      @apply flex lg:flex-col gap-3 lg:gap-2;
+    }
+}
+
+.mainHeader{
+    @apply fixed top-0 right-0 w-full lg:h-[74px] py-2 lg:py-0 bg-charcoal-black lg:rounded-bl-lg flex justify-center items-center;
+
+    @media (min-width: 1024px) {
+        width: calc(100% - 70px - 16px);
+      }
+
+    .title{
+        @apply text-white text-[28px] lg:text-[32px] font-bold;
+    }
+}
+
+.mainContainer{
+    @apply fixed right-0 bottom-4 lg:bottom-0 w-full bg-charcoal-black rounded-t-xl flex-1 overflow-auto justify-center items-center;
+    height: calc(100vh - 58px - 97px);
+
+    @media (min-width: 1024px) {
+        width: calc(100% - 70px - 16px);
+        border-radius: 8px 0 0 0;
+      }
+}
