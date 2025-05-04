@@ -1,11 +1,20 @@
 @import "tailwindcss";
-
 @tailwind utilities;
+
+/* Pages */
+@import "../pages/my-reports.css";
+
+/* Components */
+@import "../components/dropdown.css";
 
 @theme {
     --color-dark-black: #121212;
     --color-charcoal-black: #1E1E1E;
     --color-sapphire-blue: #1F3A93;
+    --color-light-blue: #3A64B7;
+    --color-divisor: #2C2C2E;
+    --color-filter: #333333;
+
     --spacing: 8px;
 }
 
@@ -15,18 +24,32 @@ body{
 }
 
 .navBar {
-    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-3 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
+    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-1 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
 
     .cityLogo {
         @apply hidden lg:flex;
       }
 
     .ul-main-nav {
-      @apply flex lg:flex-col gap-3;
+      @apply flex lg:flex-col gap-1;
+
+      li{
+        @apply rounded-lg p-1;
+      }
+      li:hover{
+        @apply bg-light-blue p-1;
+      }
     }
 
     .ul-config-nav {
-      @apply flex lg:flex-col gap-3 lg:gap-2;
+      @apply flex lg:flex-col gap-1;
+
+      li{
+        @apply rounded-full p-1;
+      }
+      li:hover{
+        @apply bg-light-blue ;
+      }
     }
 }
 
@@ -48,6 +71,9 @@ body{
 
     @media (min-width: 1024px) {
         width: calc(100% - 70px - 16px);
+        height: calc(100vh - 100px);
         border-radius: 8px 0 0 0;
       }
+
+      
 }

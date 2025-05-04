@@ -8,10 +8,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch"
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+    "start": "browser-sync start --server --files \"**/*.html, **/*.css, **/*.js\""
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.5",
+    "browser-sync": "^3.0.4",
     "tailwindcss": "^4.1.5"
   }
 }

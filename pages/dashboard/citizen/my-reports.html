@@ -18,7 +18,82 @@
         <h1 class="title">MINHAS DENÚNCIAS</h1>
     </header>
     <main class="mainContainer">
+        <section id="reportsClosed" class="reportsClosed">
+            <header id="filters" class="filters">
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Região</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Caucaia do Alto</li>
+                        <li>Granja Vianna</li>
+                        <li>Centro</li>
+                        <li>Panorama</li>
+                        <li>Morro</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Departamento</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Obras</li>
+                        <li>Cultura</li>
+                        <li>Meio ambiente</li>
+                        <li>Esportes</li>
+                        <li>Comunicação</li>
+                        <li>Mulheres</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Segmento</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Asfalto</li>
+                        <li>Manutenção</li>
+                        <li>Zeladoria</li>
+                        <li>Qualquer</li>
+                        <li>Outra</li>
+                        <li>Coisa</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Status</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Novo</li>
+                        <li>Em analise</li>
+                        <li>Corrigindo</li>
+                        <li>Resolvido</li>
+                        <li>Aprovado</li>
+                        <li>Rejeitado</li>
+                    </ul>
+                </details>
+            </header>
+            <!-- <div class="reportContent">
+                <div>
+                    <h2>Título da denúncia</h2>
 
+                    <div id="locationDiv">
+                        <p class="location">RUa xxxxxx</p>
+                        
+                        <p class="city">dsads</p>
+                        <p class="region">Região de Caucaia do Alto</p>
+                    </div>
+                    <div id="tagDiv">
+                        
+                    </div>
+                </div>
+                <div></div>
+            </div> -->
+        </section>
+        <section id="reportOpened"></section>
     </main>
 
     <nav id="nav-bar" class="navBar">
@@ -41,5 +116,13 @@
             </ul>
         </div>
     </nav>
+
+    <script type="module">
+        import { alignDropdowns } from '../../../src/script/components/DropdownAligner.js';
+      
+        document.addEventListener('DOMContentLoaded', () => {
+          alignDropdowns();
+        });
+      </script>
 </body>
 </html>
