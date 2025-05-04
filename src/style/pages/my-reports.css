@@ -2,7 +2,7 @@
   @apply w-full h-full overflow-y-auto p-1;
 
   .filters{
-    @apply relative z-10 w-full pt-3 pb-2 px-3 overflow-visible whitespace-nowrap border-b border-b-divisor flex justify-center items-center gap-1; 
+    @apply relative z-10 w-full pt-3 pb-2 px-3 ml-1  overflow-visible whitespace-nowrap border-b border-b-divisor flex justify-center items-center gap-1; 
     
     .filter{
       @apply bg-[#333333] px-1.5 py-0.5 rounded-xl flex flex-row cursor-pointer;

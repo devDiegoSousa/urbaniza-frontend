@@ -118,11 +118,8 @@
     </nav>
 
     <script type="module">
-        import { alignDropdowns } from '../../../src/script/components/DropdownAligner.js';
-      
-        document.addEventListener('DOMContentLoaded', () => {
-          alignDropdowns();
-        });
+        import { DropdownManager } from '../../../src/script/components/dropdown/dropdownAligner.js';
+        DropdownManager.initAll();
       </script>
 </body>
 </html>
