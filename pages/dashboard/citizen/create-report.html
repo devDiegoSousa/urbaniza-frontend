@@ -18,7 +18,91 @@
         <h1 class="title">DENÚNCIAR</h1>
     </header>
     <main class="mainContainer">
-
+        <section class="text-white">
+            <form class="">
+            <!-- Título -->
+            <h1 class="text-3xl font-bold text-white mt-6">Título</h1>
+            
+            <!-- Exemplo de título -->
+            <div class="mb-2">
+                <input 
+                    type="text" 
+                    placeholder="Exemplo de título" 
+                    class="p-3 w-8 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+            </div>
+            
+            <!-- Descrição -->
+            <h1 class="text-3xl font-bold text-white mt-8">Descrição</h1>
+            <textarea 
+                class="p-4 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 h-40" 
+                rows="6"
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Duis aliquet auctor consectetur. Nam ultricies magna quis vehicula blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat urna condimentum consectetur pretium efficitur.</textarea>
+            
+            <!-- Departamento -->
+            <h1 class="text-3xl font-bold text-white mt-8">Departamento</h1>
+                <!-- Selecione a área -->
+                <div>
+                    <select class="p-3 mb-2 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">-- Selecione --</option>
+                    </select>
+                </div>
+                
+                <!-- Segmento -->
+                <h1 class="text-3xl font-bold text-white mt-8">Segmento</h1>
+                <div>
+                    <select class="p-3 mb-2 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">-- Selecione --</option>
+                    </select>
+                </div>
+                
+                <!-- Denúncia em prédio público? -->
+                <div class="flex space-x-4">
+                    <label class="inline-flex items-center">
+                      <input 
+                        type="radio" 
+                        name="denuncia" 
+                        value="sim" 
+                        class="h-5 w-5 text-blue-600 focus:ring-blue-500"
+                      >
+                      <span class="ml-2 text-gray-800">Sim</span>
+                    </label>
+                    
+                    <label class="inline-flex items-center">
+                      <input 
+                        type="radio" 
+                        name="denuncia" 
+                        value="nao" 
+                        class="h-5 w-5 text-blue-600 focus:ring-blue-500"
+                      >
+                      <span class="ml-2 text-gray-800">Não</span>
+                    </label>
+                  </div>
+            </form>
+            <form action="">
+                            <!-- Título -->
+            <h1 class="text-3xl font-bold text-white mt-6">Título</h1>
+            
+            <!-- Exemplo de título -->
+            <div class="mb-2">
+                <input 
+                    type="text" 
+                    placeholder="Exemplo de título" 
+                    class="p-3 w-8 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+            </div>
+            
+            <!-- Descrição -->
+            <h1 class="text-3xl font-bold text-white mt-8">Descrição</h1>
+            <textarea 
+                class="p-4 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 h-40" 
+                rows="6"
+            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Duis aliquet auctor consectetur. Nam ultricies magna quis vehicula blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat urna condimentum consectetur pretium efficitur.</textarea>
+            
+            </form>
+        </section>
     </main>
 
     <nav id="nav-bar" class="navBar">
