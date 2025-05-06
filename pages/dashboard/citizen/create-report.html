@@ -18,91 +18,76 @@
         <h1 class="title">DENÚNCIAR</h1>
     </header>
     <main class="mainContainer">
-        <section class="text-white">
-            <form class="">
-            <!-- Título -->
-            <h1 class="text-3xl font-bold text-white mt-6">Título</h1>
-            
-            <!-- Exemplo de título -->
-            <div class="mb-2">
-                <input 
+        <section class="text-white min-h-screen p-8">
+            <div class="flex justify-between gap-8">
+              
+              <!-- Formulário da Esquerda -->
+              <div class="w-1/2">
+                <h1 class="text-3xl font-bold">Título</h1>
+                <div class="">
+                  <input 
                     type="text" 
                     placeholder="Exemplo de título" 
-                    class="p-3 w-8 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
+                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                </div>
+                
+                <h1 class="text-3xl font-bold">Descrição</h1>
+                <textarea 
+                  class="w-full p-7 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-40" 
+                  rows="4" placeholder="Lorem ipsum dolor sit amet. Non quis minima quo voluptas quia ad similique modi? Non tempore quod qui excepturi doloremque ut voluptatem maiores aut vitae accusamus sit architecto dolor a inventore rerum. Ea eligendi cumque et laborum repellat est dolore vitae! Aut accusantium recusandae rem voluptas molestiae aut omnis officiis ab minus atque non animi magnam ex alias ullam."
+                ></textarea>
+
+          <h1 class="text-3xl font-bold">Departamento</h1>
+          <div class="space-y-4">
+            <select class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Selecione</option>
+            </select>
+            
+            <h1 class="text-3xl font-bold">Segmento</h1>
+            <select class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Segmento</option>
+            </select>
+    
+            
+            <div class="flex space-x-4 pt-2">
+              <label class="inline-flex items-center">
+                <input type="radio" name="opcao" class="h-5 w-5 text-blue-500">
+                <span class="ml-2">Sim</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="opcao" class="h-5 w-5 text-blue-500">
+                <span class="ml-2">Não</span>
+              </label>
             </div>
-            
-            <!-- Descrição -->
-            <h1 class="text-3xl font-bold text-white mt-8">Descrição</h1>
-            <textarea 
-                class="p-4 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 h-40" 
-                rows="6"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Duis aliquet auctor consectetur. Nam ultricies magna quis vehicula blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat urna condimentum consectetur pretium efficitur.</textarea>
-            
-            <!-- Departamento -->
-            <h1 class="text-3xl font-bold text-white mt-8">Departamento</h1>
-                <!-- Selecione a área -->
-                <div>
-                    <select class="p-3 mb-2 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">-- Selecione --</option>
-                    </select>
-                </div>
-                
-                <!-- Segmento -->
-                <h1 class="text-3xl font-bold text-white mt-8">Segmento</h1>
-                <div>
-                    <select class="p-3 mb-2 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">-- Selecione --</option>
-                    </select>
-                </div>
-                
-                <!-- Denúncia em prédio público? -->
-                <div class="flex space-x-4">
-                    <label class="inline-flex items-center">
-                      <input 
-                        type="radio" 
-                        name="denuncia" 
-                        value="sim" 
-                        class="h-5 w-5 text-blue-600 focus:ring-blue-500"
-                      >
-                      <span class="ml-2 text-gray-800">Sim</span>
-                    </label>
-                    
-                    <label class="inline-flex items-center">
-                      <input 
-                        type="radio" 
-                        name="denuncia" 
-                        value="nao" 
-                        class="h-5 w-5 text-blue-600 focus:ring-blue-500"
-                      >
-                      <span class="ml-2 text-gray-800">Não</span>
-                    </label>
-                  </div>
-            </form>
-            <form action="">
-                            <!-- Título -->
-            <h1 class="text-3xl font-bold text-white mt-6">Título</h1>
-            
-            <!-- Exemplo de título -->
-            <div class="mb-2">
-                <input 
+          </div>
+              </div>
+              
+              <!-- Formulário da Direita -->
+              <div class="w-1/2">
+                <h1 class="text-3xl font-bold">Logradouro</h1>
+                <div class="">
+                  <input 
                     type="text" 
                     placeholder="Exemplo de título" 
-                    class="p-3 w-8 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
+                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                </div>
+
+                <h1 class="text-3xl font-bold">Número</h1>
+                <div class="">
+                  <input 
+                    type="number" 
+                    placeholder="00000000" 
+                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                </div>
+                
+               
+              </div>
+              
             </div>
-            
-            <!-- Descrição -->
-            <h1 class="text-3xl font-bold text-white mt-8">Descrição</h1>
-            <textarea 
-                class="p-4 text-lg border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 h-40" 
-                rows="6"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Duis aliquet auctor consectetur. Nam ultricies magna quis vehicula blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat urna condimentum consectetur pretium efficitur.</textarea>
-            
-            </form>
-        </section>
+          </section>
     </main>
 
     <nav id="nav-bar" class="navBar">
