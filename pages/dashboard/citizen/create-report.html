@@ -18,76 +18,149 @@
         <h1 class="title">DENÚNCIAR</h1>
     </header>
     <main class="mainContainer">
-        <section class="text-white min-h-screen p-8">
-            <div class="flex justify-between gap-8">
-              
-              <!-- Formulário da Esquerda -->
-              <div class="w-1/2">
-                <h1 class="text-3xl font-bold">Título</h1>
-                <div class="">
-                  <input 
-                    type="text" 
-                    placeholder="Exemplo de título" 
-                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                </div>
-                
-                <h1 class="text-3xl font-bold">Descrição</h1>
-                <textarea 
-                  class="w-full p-7 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-40" 
-                  rows="4" placeholder="Lorem ipsum dolor sit amet. Non quis minima quo voluptas quia ad similique modi? Non tempore quod qui excepturi doloremque ut voluptatem maiores aut vitae accusamus sit architecto dolor a inventore rerum. Ea eligendi cumque et laborum repellat est dolore vitae! Aut accusantium recusandae rem voluptas molestiae aut omnis officiis ab minus atque non animi magnam ex alias ullam."
-                ></textarea>
-
-          <h1 class="text-3xl font-bold">Departamento</h1>
-          <div class="space-y-4">
-            <select class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="">Selecione</option>
-            </select>
-            
-            <h1 class="text-3xl font-bold">Segmento</h1>
-            <select class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="">Segmento</option>
-            </select>
+      <section class="text-white"> 
+        <div class="flex justify-center">
+            <div class="w-full max-w-4xl px-4">
+                <div style="padding-top: 20px;" class="flex justify-between space-x-8">
+                    <!-- Formulário da Esquerda -->
+                    <div class="w-1/2 ">
+                        <h1 class="text-2xl font-bold">Título</h1>
+                        <div class="">
+                            <input 
+                                type="text" 
+                                placeholder="Exemplo de título" 
+                                class=""
+                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A"
+                            >
+                        </div>
+                        
+                        <h1 class="text-2xl font-bold">Descrição</h1>
+                        <textarea 
+                            rows="4" placeholder="Lorem ipsum dolor sit amet. Non quis minima quo voluptas quia ad similique modi? Non tempore quod qui excepturi dolore..."
+                            style="width: 500px; border-radius: 2px; background-color: #2A2A2A"
+                            ></textarea>
     
-            
-            <div class="flex space-x-4 pt-2">
-              <label class="inline-flex items-center">
-                <input type="radio" name="opcao" class="h-5 w-5 text-blue-500">
-                <span class="ml-2">Sim</span>
-              </label>
-              <label class="inline-flex items-center">
-                <input type="radio" name="opcao" class="h-5 w-5 text-blue-500">
-                <span class="ml-2">Não</span>
-              </label>
-            </div>
-          </div>
-              </div>
-              
-              <!-- Formulário da Direita -->
-              <div class="w-1/2">
-                <h1 class="text-3xl font-bold">Logradouro</h1>
-                <div class="">
-                  <input 
-                    type="text" 
-                    placeholder="Exemplo de título" 
-                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                </div>
-
-                <h1 class="text-3xl font-bold">Número</h1>
-                <div class="">
-                  <input 
-                    type="number" 
-                    placeholder="00000000" 
-                    class="w-full p-3 text-lg border bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                </div>
+                        <h1 class="text-2xl font-bold">Departamento</h1>
+                        <div class="space-y-4 ">
+                            <select style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" class=" mb-1">
+                                <option value="">Selecione a área</option>
+                                <option value="">Educação</option>
+                                <option value="">Saúde</option>
+                                <option value="">Esportes</option>
+                            </select>
+                            
+                            <h1 class="text-2xl font-bold">Segmento</h1>
+                            <select  class=" mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" >
+                                <option value="">Selecione o tipo</option>
+                                <option value="">Educação</option>
+                                <option value="">Saúde</option>
+                                <option value="">Selecione o tipo</option>
+                                <option value="">Selecione o tipo</option>
+                            </select>
                 
-               
-              </div>
-              
+                            <h1 class="text-2xl font-bold mb-2">Denúncia em prédio público?</h1>
+                            <div class="flex space-x-4 pt-2">
+                                <label class="inline-flex items-center">
+                                  <span class="ml-2">Sim</span>
+                                  <input 
+                                  type="radio" 
+                                  name="opcao" 
+                                  style="
+                                      width: 24px;
+                                      height: 24px;
+                                      border-radius: 6px;
+                                      border: 2px solid #9CA3AF;
+                                      appearance: none;
+                                      -webkit-appearance: none;
+                                      cursor: pointer;
+                                      margin-right: 20px;
+                                      
+                                  "
+                                   onclick="
+                                   // Reseta todos os radios do mesmo nome
+                                   document.querySelectorAll('input[name=\'opcao\']').forEach(radio => {
+                                       radio.style.backgroundColor = 'transparent';
+                                       radio.style.borderColor = '#9CA3AF';
+                                   });
+                                   // Aplica estilo ao radio clicado
+                                   this.style.backgroundColor = '#3B82F6';
+                                   this.style.borderColor = '#3B82F6';
+                               "
+                                 
+                              >
+
+                                </label>
+                                <label class="inline-flex items-center">
+                                  <span class="ml-4">Não</span>
+                                  <input 
+                                  type="radio" 
+                                  name="opcao" 
+                                  style="
+                                      width: 24px;
+                                      height: 24px;
+                                      border-radius: 6px;
+                                      border: 2px solid #9CA3AF;
+                                      appearance: none;
+                                      -webkit-appearance: none;
+                                      cursor: pointer;
+
+                                  "
+ onclick="
+ // Reseta todos os radios do mesmo nome
+ document.querySelectorAll('input[name=\'opcao\']').forEach(radio => {
+     radio.style.backgroundColor = 'transparent';
+     radio.style.borderColor = '#9CA3AF';
+ });
+ // Aplica estilo ao radio clicado
+ this.style.backgroundColor = '#3B82F6';
+ this.style.borderColor = '#3B82F6';
+"
+                              >
+                                    
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulário da Direita -->
+                    <div style="padding-left: 40px;" class="w-1/2">
+                        <h1  class="text-2xl font-bold">Logradouro</h1>
+                        <div class="">
+                            <input 
+                                type="text" 
+                                placeholder="Exemplo de título" 
+                                class="bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A"                            >
+                        </div>
+
+    
+                        <h1 class="text-2xl font-bold">Número</h1>
+                        <div class="">
+                            <input 
+                                type="number" 
+                                placeholder="00000000" 
+                                class="bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                style="border-radius: 2px; padding: 8px; background-color: #2A2A2A"
+                            >
+                        </div>
+
+                        
+                        <h1 class="text-2xl font-bold">Região</h1>
+                        <select  class=" mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" >
+                            <option value="">Selecione a região</option>
+                            <option value="">Norte</option>
+                            <option value="">Sul</option>
+                            <option value="">Leste</option>
+                            <option value="">Oeste</option>
+                        </select>
+                        <img src="../citizen/Map-view.png" alt="">
+
+                        
+                    </div>
+                </div>
             </div>
-          </section>
+        </div>
+    </section>
     </main>
 
     <nav id="nav-bar" class="navBar">
