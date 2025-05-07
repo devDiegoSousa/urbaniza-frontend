@@ -224,11 +224,20 @@
   .absolute {
     position: absolute;
   }
+  .fixed {
+    position: fixed;
+  }
   .relative {
     position: relative;
   }
   .static {
     position: static;
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .bottom-4 {
+    bottom: calc(var(--spacing) * 4);
   }
   .container {
     width: 100%;
@@ -320,6 +329,9 @@
   .max-w-sm {
     max-width: var(--container-sm);
   }
+  .flex-1 {
+    flex: 1;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -377,6 +389,10 @@
   .rounded-md {
     border-radius: var(--radius-md);
   }
+  .rounded-t-xl {
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -386,6 +402,9 @@
   }
   .border-red-500 {
     border-color: var(--color-red-500);
+  }
+  .bg-charcoal-black {
+    background-color: var(--color-charcoal-black);
   }
   .bg-gray-50 {
     background-color: var(--color-gray-50);
@@ -575,6 +594,11 @@
       width: 350px;
     }
   }
+  .lg\:bottom-0 {
+    @media (width >= 64rem) {
+      bottom: calc(var(--spacing) * 0);
+    }
+  }
   .lg\:h-\[45px\] {
     @media (width >= 64rem) {
       height: 45px;
@@ -607,6 +631,180 @@
   }
 }
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+.navBar {
+  position: fixed;
+  bottom: calc(var(--spacing) * 0);
+  display: flex;
+  height: 49px;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing) * 1);
+  background-color: var(--color-sapphire-blue);
+  padding-block: calc(var(--spacing) * 1);
+  @media (width >= 64rem) {
+    position: relative;
+  }
+  @media (width >= 64rem) {
+    height: 100vh;
+  }
+  @media (width >= 64rem) {
+    width: 70px;
+  }
+  @media (width >= 64rem) {
+    flex-direction: column;
+  }
+  @media (width >= 64rem) {
+    align-items: center;
+  }
+  @media (width >= 64rem) {
+    justify-content: space-between;
+  }
+  @media (width >= 64rem) {
+    gap: calc(var(--spacing) * 0);
+  }
+  @media (width >= 64rem) {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .cityLogo {
+    display: none;
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .ul-main-nav {
+    display: flex;
+    gap: calc(var(--spacing) * 1);
+    @media (width >= 64rem) {
+      flex-direction: column;
+    }
+    li {
+      border-radius: var(--radius-lg);
+      padding: calc(var(--spacing) * 1);
+    }
+    li:hover {
+      background-color: var(--color-light-blue);
+      padding: calc(var(--spacing) * 1);
+    }
+  }
+  .ul-config-nav {
+    display: flex;
+    gap: calc(var(--spacing) * 1);
+    @media (width >= 64rem) {
+      flex-direction: column;
+    }
+    li {
+      border-radius: calc(infinity * 1px);
+      padding: calc(var(--spacing) * 1);
+    }
+    li:hover {
+      background-color: var(--color-light-blue);
+    }
+  }
+}
+.mainHeader {
+  position: fixed;
+  top: calc(var(--spacing) * 0);
+  right: calc(var(--spacing) * 0);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-charcoal-black);
+  padding-block: calc(var(--spacing) * 2);
+  @media (width >= 64rem) {
+    height: 74px;
+  }
+  @media (width >= 64rem) {
+    border-bottom-left-radius: var(--radius-lg);
+  }
+  @media (width >= 64rem) {
+    padding-block: calc(var(--spacing) * 0);
+  }
+  @media (min-width: 1024px) {
+    width: calc(100% - 70px - 16px);
+  }
+  .title {
+    font-size: 28px;
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    @media (width >= 64rem) {
+      font-size: 32px;
+    }
+  }
+}
+.navBar {
+  position: fixed;
+  bottom: calc(var(--spacing) * 0);
+  display: flex;
+  height: 49px;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing) * 1);
+  background-color: var(--color-sapphire-blue);
+  padding-block: calc(var(--spacing) * 1);
+  @media (width >= 64rem) {
+    position: relative;
+  }
+  @media (width >= 64rem) {
+    height: 100vh;
+  }
+  @media (width >= 64rem) {
+    width: 70px;
+  }
+  @media (width >= 64rem) {
+    flex-direction: column;
+  }
+  @media (width >= 64rem) {
+    align-items: center;
+  }
+  @media (width >= 64rem) {
+    justify-content: space-between;
+  }
+  @media (width >= 64rem) {
+    gap: calc(var(--spacing) * 0);
+  }
+  @media (width >= 64rem) {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .cityLogo {
+    display: none;
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .ul-main-nav {
+    display: flex;
+    gap: calc(var(--spacing) * 1);
+    @media (width >= 64rem) {
+      flex-direction: column;
+    }
+    li {
+      border-radius: var(--radius-lg);
+      padding: calc(var(--spacing) * 1);
+    }
+    li:hover {
+      background-color: var(--color-light-blue);
+      padding: calc(var(--spacing) * 1);
+    }
+  }
+  .ul-config-nav {
+    display: flex;
+    gap: calc(var(--spacing) * 1);
+    @media (width >= 64rem) {
+      flex-direction: column;
+    }
+    li {
+      border-radius: calc(infinity * 1px);
+      padding: calc(var(--spacing) * 1);
+    }
+    li:hover {
+      background-color: var(--color-light-blue);
+    }
+  }
+}
 .report {
   margin-bottom: calc(var(--spacing) * 2);
   display: flex;
@@ -809,109 +1007,6 @@
 }
 body {
   background-color: var(--color-dark-black);
-}
-.navBar {
-  position: fixed;
-  bottom: calc(var(--spacing) * 0);
-  display: flex;
-  height: 49px;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-  gap: calc(var(--spacing) * 1);
-  background-color: var(--color-sapphire-blue);
-  padding-block: calc(var(--spacing) * 1);
-  @media (width >= 64rem) {
-    position: relative;
-  }
-  @media (width >= 64rem) {
-    height: 100vh;
-  }
-  @media (width >= 64rem) {
-    width: 70px;
-  }
-  @media (width >= 64rem) {
-    flex-direction: column;
-  }
-  @media (width >= 64rem) {
-    align-items: center;
-  }
-  @media (width >= 64rem) {
-    justify-content: space-between;
-  }
-  @media (width >= 64rem) {
-    gap: calc(var(--spacing) * 0);
-  }
-  @media (width >= 64rem) {
-    padding-block: calc(var(--spacing) * 2);
-  }
-  .cityLogo {
-    display: none;
-    @media (width >= 64rem) {
-      display: flex;
-    }
-  }
-  .ul-main-nav {
-    display: flex;
-    gap: calc(var(--spacing) * 1);
-    @media (width >= 64rem) {
-      flex-direction: column;
-    }
-    li {
-      border-radius: var(--radius-lg);
-      padding: calc(var(--spacing) * 1);
-    }
-    li:hover {
-      background-color: var(--color-light-blue);
-      padding: calc(var(--spacing) * 1);
-    }
-  }
-  .ul-config-nav {
-    display: flex;
-    gap: calc(var(--spacing) * 1);
-    @media (width >= 64rem) {
-      flex-direction: column;
-    }
-    li {
-      border-radius: calc(infinity * 1px);
-      padding: calc(var(--spacing) * 1);
-    }
-    li:hover {
-      background-color: var(--color-light-blue);
-    }
-  }
-}
-.mainHeader {
-  position: fixed;
-  top: calc(var(--spacing) * 0);
-  right: calc(var(--spacing) * 0);
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-charcoal-black);
-  padding-block: calc(var(--spacing) * 2);
-  @media (width >= 64rem) {
-    height: 74px;
-  }
-  @media (width >= 64rem) {
-    border-bottom-left-radius: var(--radius-lg);
-  }
-  @media (width >= 64rem) {
-    padding-block: calc(var(--spacing) * 0);
-  }
-  @media (min-width: 1024px) {
-    width: calc(100% - 70px - 16px);
-  }
-  .title {
-    font-size: 28px;
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-white);
-    @media (width >= 64rem) {
-      font-size: 32px;
-    }
-  }
 }
 .mainContainer {
   position: fixed;

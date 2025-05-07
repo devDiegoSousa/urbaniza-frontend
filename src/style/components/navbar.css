@@ -1,0 +1,19 @@
+.navBar {
+    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-1 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
+
+    .cityLogo {@apply hidden lg:flex;}
+
+    .ul-main-nav {
+      @apply flex lg:flex-col gap-1;
+
+      li{@apply rounded-lg p-1;}
+      li:hover{@apply bg-light-blue p-1;}
+    }
+
+    .ul-config-nav {
+      @apply flex lg:flex-col gap-1;
+
+      li{@apply rounded-full p-1;}
+      li:hover{@apply bg-light-blue ;}
+    }
+}

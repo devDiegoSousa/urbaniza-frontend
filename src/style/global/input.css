@@ -5,10 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* Components */
+@import "../components/navbar.css";
+@import "../components/header.css";
+@import "../components/main.css";
+
 @import "../components/report.css";
 @import "../components/tag.css";
 @import "../components/status.css";
 @import "../components/dropdown.css";
+
 
 /* Pages */
 @import "../pages/my-reports.css";
@@ -53,47 +58,9 @@ body{
     @apply bg-dark-black;
 }
 
-.navBar {
-    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-1 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
 
-    .cityLogo {
-        @apply hidden lg:flex;
-      }
 
-    .ul-main-nav {
-      @apply flex lg:flex-col gap-1;
 
-      li{
-        @apply rounded-lg p-1;
-      }
-      li:hover{
-        @apply bg-light-blue p-1;
-      }
-    }
-
-    .ul-config-nav {
-      @apply flex lg:flex-col gap-1;
-
-      li{
-        @apply rounded-full p-1;
-      }
-      li:hover{
-        @apply bg-light-blue ;
-      }
-    }
-}
-
-.mainHeader{
-    @apply fixed top-0 right-0 w-full lg:h-[74px] py-2 lg:py-0 bg-charcoal-black lg:rounded-bl-lg flex justify-center items-center;
-
-    @media (min-width: 1024px) {
-        width: calc(100% - 70px - 16px);
-      }
-
-    .title{
-        @apply text-white text-[28px] lg:text-[32px] font-bold;
-    }
-}
 
 .mainContainer{
     @apply fixed right-0 bottom-4 lg:bottom-0 
@@ -107,6 +74,4 @@ body{
         height: calc(100vh - 100px);
         border-radius: 8px 0 0 0;
       }
-
-      
 }
