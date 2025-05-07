@@ -11,6 +11,23 @@
     <title>Urbaniza | Denúncie</title>
 
     <link rel="stylesheet" href="../../../src/style/global/output.css">
+    <style>
+        .hidden-form {
+            display: none;
+        }
+        .region-select {
+            border-radius: 2px; 
+            background-color: #2A2A2A; 
+            padding: 8px;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .map-image {
+            margin-top: 16px;
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body class="flex flex-col h-screen">
 
@@ -23,7 +40,7 @@
             <div class="w-full max-w-4xl px-4">
                 <div style="padding-top: 20px;" class="flex justify-between space-x-8">
                     <!-- Formulário da Esquerda -->
-                    <div class="w-1/2 ">
+                    <div class="w-1/2">
                         <h1 class="text-2xl font-bold">Título</h1>
                         <div class="">
                             <input 
@@ -41,8 +58,8 @@
                             ></textarea>
     
                         <h1 class="text-2xl font-bold">Departamento</h1>
-                        <div class="space-y-4 ">
-                            <select style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" class=" mb-1">
+                        <div class="space-y-4">
+                            <select style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" class="mb-1">
                                 <option value="">Selecione a área</option>
                                 <option value="">Educação</option>
                                 <option value="">Saúde</option>
@@ -50,7 +67,7 @@
                             </select>
                             
                             <h1 class="text-2xl font-bold">Segmento</h1>
-                            <select  class=" mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" >
+                            <select class="mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;">
                                 <option value="">Selecione o tipo</option>
                                 <option value="">Educação</option>
                                 <option value="">Saúde</option>
@@ -65,6 +82,8 @@
                                   <input 
                                   type="radio" 
                                   name="opcao" 
+                                  value="sim"
+                                  class="radio-option"
                                   style="
                                       width: 24px;
                                       height: 24px;
@@ -74,27 +93,15 @@
                                       -webkit-appearance: none;
                                       cursor: pointer;
                                       margin-right: 20px;
-                                      
-                                  "
-                                   onclick="
-                                   // Reseta todos os radios do mesmo nome
-                                   document.querySelectorAll('input[name=\'opcao\']').forEach(radio => {
-                                       radio.style.backgroundColor = 'transparent';
-                                       radio.style.borderColor = '#9CA3AF';
-                                   });
-                                   // Aplica estilo ao radio clicado
-                                   this.style.backgroundColor = '#3B82F6';
-                                   this.style.borderColor = '#3B82F6';
-                               "
-                                 
-                              >
-
+                                  ">
                                 </label>
                                 <label class="inline-flex items-center">
                                   <span class="ml-4">Não</span>
                                   <input 
                                   type="radio" 
                                   name="opcao" 
+                                  value="nao"
+                                  class="radio-option"
                                   style="
                                       width: 24px;
                                       height: 24px;
@@ -103,37 +110,23 @@
                                       appearance: none;
                                       -webkit-appearance: none;
                                       cursor: pointer;
-
-                                  "
- onclick="
- // Reseta todos os radios do mesmo nome
- document.querySelectorAll('input[name=\'opcao\']').forEach(radio => {
-     radio.style.backgroundColor = 'transparent';
-     radio.style.borderColor = '#9CA3AF';
- });
- // Aplica estilo ao radio clicado
- this.style.backgroundColor = '#3B82F6';
- this.style.borderColor = '#3B82F6';
-"
-                              >
-                                    
+                                  ">
                                 </label>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Formulário da Direita -->
-                    <div style="padding-left: 40px;" class="w-1/2">
-                        <h1  class="text-2xl font-bold">Logradouro</h1>
+                    <!-- Formulário da Direita (Não) -->
+                    <div id="right-form-nao" style="padding-left: 40px;" class="w-1/2 hidden-form">
+                        <h1 class="text-2xl font-bold">Logradouro</h1>
                         <div class="">
                             <input 
                                 type="text" 
                                 placeholder="Exemplo de título" 
                                 class="bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A"                            >
+                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A">
                         </div>
 
-    
                         <h1 class="text-2xl font-bold">Número</h1>
                         <div class="">
                             <input 
@@ -144,18 +137,38 @@
                             >
                         </div>
 
-                        
                         <h1 class="text-2xl font-bold">Região</h1>
-                        <select  class=" mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" >
+                        <select class="region-select">
                             <option value="">Selecione a região</option>
                             <option value="">Norte</option>
                             <option value="">Sul</option>
                             <option value="">Leste</option>
                             <option value="">Oeste</option>
                         </select>
-                        <img src="../citizen/Map-view.png" alt="">
+                        <img src="../citizen/Map-view.png" alt="Mapa" class="map-image">
+                    </div>
+                    
+                    <!-- Formulário da Direita (Sim) -->
+                    <div id="right-form-sim" style="padding-left: 40px;" class="w-1/2 hidden-form">
+                        <h1 class="text-2xl font-bold">Região do Prédio</h1>
+                        <select class="region-select">
+                            <option value="">Selecione a região</option>
+                            <option value="">Norte</option>
+                            <option value="">Sul</option>
+                            <option value="">Leste</option>
+                            <option value="">Oeste</option>
+                        </select>
 
+                        <h1 class="text-2xl font-bold">Unidade do Prédio</h1>
+                        <select class="region-select">
+                            <option value="">Selecione o unidade</option>
+                            <option value="">Administrativo</option>
+                            <option value="">Educacional</option>
+                            <option value="">Saúde</option>
+                            <option value="">Segurança</option>
+                        </select>
                         
+                        <img src="../citizen/Map-view.png" alt="Mapa" class="map-image">
                     </div>
                 </div>
             </div>
@@ -183,5 +196,42 @@
             </ul>
         </div>
     </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicialmente esconde ambos os formulários da direita
+            const rightFormNao = document.getElementById('right-form-nao');
+            const rightFormSim = document.getElementById('right-form-sim');
+            rightFormNao.classList.add('hidden-form');
+            rightFormSim.classList.add('hidden-form');
+            
+            // Seleciona todos os radio buttons
+            const radioOptions = document.querySelectorAll('.radio-option');
+            
+            // Adiciona evento de clique a cada radio button
+            radioOptions.forEach(radio => {
+                radio.addEventListener('click', function() {
+                    // Reseta o estilo de todos os radios
+                    radioOptions.forEach(r => {
+                        r.style.backgroundColor = 'transparent';
+                        r.style.borderColor = '#9CA3AF';
+                    });
+                    
+                    // Aplica estilo ao radio clicado
+                    this.style.backgroundColor = '#3B82F6';
+                    this.style.borderColor = '#3B82F6';
+                    
+                    // Mostra/esconde os formulários baseado na seleção
+                    if (this.value === 'nao') {
+                        rightFormNao.classList.remove('hidden-form');
+                        rightFormSim.classList.add('hidden-form');
+                    } else {
+                        rightFormSim.classList.remove('hidden-form');
+                        rightFormNao.classList.add('hidden-form');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
