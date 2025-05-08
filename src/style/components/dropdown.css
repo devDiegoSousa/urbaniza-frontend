@@ -9,6 +9,6 @@
     @apply absolute top-full left-0 mt-1 z-40 bg-white shadow-lg rounded p-2;
 
     min-width: max-content;
-    max-width: 90vw; /* Certifica-se de que o menu nunca ultrapasse 90% da largura da tela */
+    max-width: 90vw;
   }
 }

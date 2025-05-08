@@ -30,208 +30,74 @@
     </style>
 </head>
 <body class="flex flex-col h-screen">
+  <header id="main-header" class="mainHeader">
+      <h1 class="title">DENÚNCIAR</h1>
+  </header>
+  <main class="mainContainer flex flex-col justify-between">
+      <div class="w-full h-max flex flex-col justify-center items-center md:flex-row px-1.5 pt-5 md:pt-3">
+          <!-- Report info form -->
+          <section class=" h-full lg:w-1/2 pl-2 lg:pl-5 lg:pt-3 text-white flex flex-col initialPageForm"> 
+              <p class="text-white text-2xl font-bold highlightLine w-max">Título da denúncia</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Descrição</p>
+              <textarea name="" id="" class="inputBasic textInput" maxlength="255" placeholder="Escreva um pouco sobre a denúncia a ser feita. Coloque informações importantes."></textarea>
+  
+              <p class="text-white text-2xl font-bold mb-2 highlightLine w-max">Deseja se identificar?</p>
+              <div class="flex flex-row gap-3 w-full lg:w-[138px]">
+                  <label class="flex items-center">
+                      <span class="mr-1">Sim</span>
+                      <input type="radio" name="option" value="yes" class="radioInput">
+                  </label>
+                  <label class="flex items-center">
+                      <span class="ml-5 mr-1">Não</span>
+                      <input type="radio" name="option" value="No" class="radioInput">
+                  </label>
+              </div>
+          </section>
 
-    <header id="main-header" class="mainHeader">
-        <h1 class="title">DENÚNCIAR</h1>
-    </header>
-    <main class="mainContainer">
-      <section class="text-white"> 
-        <div class="flex justify-center">
-            <div class="w-full max-w-4xl px-4">
-                <div style="padding-top: 20px;" class="flex justify-between space-x-8">
-                    <!-- Formulário da Esquerda -->
-                    <div class="w-1/2">
-                        <h1 class="text-2xl font-bold">Título</h1>
-                        <div class="">
-                            <input 
-                                type="text" 
-                                placeholder="Exemplo de título" 
-                                class=""
-                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A"
-                            >
-                        </div>
-                        
-                        <h1 class="text-2xl font-bold">Descrição</h1>
-                        <textarea 
-                            rows="4" placeholder="Lorem ipsum dolor sit amet. Non quis minima quo voluptas quia ad similique modi? Non tempore quod qui excepturi dolore..."
-                            style="width: 500px; border-radius: 2px; background-color: #2A2A2A"
-                            ></textarea>
-    
-                        <h1 class="text-2xl font-bold">Departamento</h1>
-                        <div class="space-y-4">
-                            <select style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;" class="mb-1">
-                                <option value="">Selecione a área</option>
-                                <option value="">Educação</option>
-                                <option value="">Saúde</option>
-                                <option value="">Esportes</option>
-                            </select>
-                            
-                            <h1 class="text-2xl font-bold">Segmento</h1>
-                            <select class="mb-2" style="border-radius: 2px; background-color: #2A2A2A; padding: 8px;">
-                                <option value="">Selecione o tipo</option>
-                                <option value="">Educação</option>
-                                <option value="">Saúde</option>
-                                <option value="">Selecione o tipo</option>
-                                <option value="">Selecione o tipo</option>
-                            </select>
-                
-                            <h1 class="text-2xl font-bold mb-2">Denúncia em prédio público?</h1>
-                            <div class="flex space-x-4 pt-2">
-                                <label class="inline-flex items-center">
-                                  <span class="ml-2">Sim</span>
-                                  <input 
-                                  type="radio" 
-                                  name="opcao" 
-                                  value="sim"
-                                  class="radio-option"
-                                  style="
-                                      width: 24px;
-                                      height: 24px;
-                                      border-radius: 6px;
-                                      border: 2px solid #9CA3AF;
-                                      appearance: none;
-                                      -webkit-appearance: none;
-                                      cursor: pointer;
-                                      margin-right: 20px;
-                                  ">
-                                </label>
-                                <label class="inline-flex items-center">
-                                  <span class="ml-4">Não</span>
-                                  <input 
-                                  type="radio" 
-                                  name="opcao" 
-                                  value="nao"
-                                  class="radio-option"
-                                  style="
-                                      width: 24px;
-                                      height: 24px;
-                                      border-radius: 6px;
-                                      border: 2px solid #9CA3AF;
-                                      appearance: none;
-                                      -webkit-appearance: none;
-                                      cursor: pointer;
-                                  ">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Formulário da Direita (Não) -->
-                    <div id="right-form-nao" style="padding-left: 40px;" class="w-1/2 hidden-form">
-                        <h1 class="text-2xl font-bold">Logradouro</h1>
-                        <div class="">
-                            <input 
-                                type="text" 
-                                placeholder="Exemplo de título" 
-                                class="bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                style="border-radius: 2px;  padding: 8px; background-color: #2A2A2A">
-                        </div>
+          <!-- Report location form -->
+          <section class="w-max md:w-full h-full lg:w-1/2 lg:pl-5 lg:pt-3 text-white flex-col hidden md:flex secondPageForm">
+              <p class="text-white text-2xl font-bold highlightLine w-max">Logradouro</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Número</p>
+              <input type="number" class="inputBasic numberInput" placeholder="00.000" min="1" max="99999" maxlength="5"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Bairro</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Região</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+          </section>
+      </div>
+      <div class="w-full py-5 flex justify-center items-center mt-5 mb-10 lg:mt-0">
+          <button type="submit" id="nextButton" class="buttonForm bg-[#1F3A93] focus:ring-blue-500 active:bg-blue-700 md:hidden">Próximo</button>
+          <button type="submit" id="confirmButton" class="buttonForm bg-[#27AE60] focus:ring-green-500 active:bg-green-700 hidden md:flex">Enviar denúncia</button>
+      </div>
+  </main>
+  <nav id="nav-bar" class="navBar">
+      <div class="cityLogo">
+          <img src="../../../assets/images/Brasão_Cotia.png" alt="city logo" id="city-logo" class="lg:w-[40px] lg:h-[45px]">
+      </div>
+      <div id="main-nav">
+          <ul class="ul-main-nav">
+              <li><a href="./map.html"><img src="../../../assets/icons/Map icon.svg" alt=""></a></li>
+              <li><a href="./my-reports.html"><img src="../../../assets/icons/My-reports icon.svg" alt=""></a></li>
+              <li><a href="#"><img src="../../../assets/icons/New-report icon.svg" alt=""></a></li>
+              <li><a href="./dashboard.html"><img src="../../../assets/icons/Graph icon.svg" alt=""></a></li>
+              <li><a href="./rewards.html"><img src="../../../assets/icons/Gamification icon.svg" alt=""></a></li>
+          </ul>
+      </div>
+      <div id="config-nav">
+          <ul class="ul-config-nav">
+              <li><a href="#"><img src="../../../assets/icons/User-profile icon.svg" alt=""></a></li>
+              <li><a href="#"><img src="../../../assets/icons/Config-setting icon.svg" alt=""></a></li>
+          </ul>
+      </div>
+  </nav>
 
-                        <h1 class="text-2xl font-bold">Número</h1>
-                        <div class="">
-                            <input 
-                                type="number" 
-                                placeholder="00000000" 
-                                class="bg-gray-#2C2C2E rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                style="border-radius: 2px; padding: 8px; background-color: #2A2A2A"
-                            >
-                        </div>
-
-                        <h1 class="text-2xl font-bold">Região</h1>
-                        <select class="region-select">
-                            <option value="">Selecione a região</option>
-                            <option value="">Norte</option>
-                            <option value="">Sul</option>
-                            <option value="">Leste</option>
-                            <option value="">Oeste</option>
-                        </select>
-                        <img src="../citizen/Map-view.png" alt="Mapa" class="map-image">
-                    </div>
-                    
-                    <!-- Formulário da Direita (Sim) -->
-                    <div id="right-form-sim" style="padding-left: 40px;" class="w-1/2 hidden-form">
-                        <h1 class="text-2xl font-bold">Região do Prédio</h1>
-                        <select class="region-select">
-                            <option value="">Selecione a região</option>
-                            <option value="">Norte</option>
-                            <option value="">Sul</option>
-                            <option value="">Leste</option>
-                            <option value="">Oeste</option>
-                        </select>
-
-                        <h1 class="text-2xl font-bold">Unidade do Prédio</h1>
-                        <select class="region-select">
-                            <option value="">Selecione o unidade</option>
-                            <option value="">Administrativo</option>
-                            <option value="">Educacional</option>
-                            <option value="">Saúde</option>
-                            <option value="">Segurança</option>
-                        </select>
-                        
-                        <img src="../citizen/Map-view.png" alt="Mapa" class="map-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <nav id="nav-bar" class="navBar">
-        <div class="cityLogo">
-            <img src="../../../assets/images/Brasão_Cotia.png" alt="city logo" id="city-logo" class="lg:w-[40px] lg:h-[45px]">
-        </div>
-        <div id="main-nav">
-            <ul class="ul-main-nav">
-                <li><a href="./map.html"><img src="../../../assets/icons/Map icon.svg" alt=""></a></li>
-                <li><a href="./my-reports.html"><img src="../../../assets/icons/My-reports icon.svg" alt=""></a></li>
-                <li><a href="#"><img src="../../../assets/icons/New-report icon.svg" alt=""></a></li>
-                <li><a href="./dashboard.html"><img src="../../../assets/icons/Graph icon.svg" alt=""></a></li>
-                <li><a href="./rewards.html"><img src="../../../assets/icons/Gamification icon.svg" alt=""></a></li>
-            </ul>
-        </div>
-        <div id="config-nav">
-            <ul class="ul-config-nav">
-                <li><a href="#"><img src="../../../assets/icons/User-profile icon.svg" alt=""></a></li>
-                <li><a href="#"><img src="../../../assets/icons/Config-setting icon.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicialmente esconde ambos os formulários da direita
-            const rightFormNao = document.getElementById('right-form-nao');
-            const rightFormSim = document.getElementById('right-form-sim');
-            rightFormNao.classList.add('hidden-form');
-            rightFormSim.classList.add('hidden-form');
-            
-            // Seleciona todos os radio buttons
-            const radioOptions = document.querySelectorAll('.radio-option');
-            
-            // Adiciona evento de clique a cada radio button
-            radioOptions.forEach(radio => {
-                radio.addEventListener('click', function() {
-                    // Reseta o estilo de todos os radios
-                    radioOptions.forEach(r => {
-                        r.style.backgroundColor = 'transparent';
-                        r.style.borderColor = '#9CA3AF';
-                    });
-                    
-                    // Aplica estilo ao radio clicado
-                    this.style.backgroundColor = '#3B82F6';
-                    this.style.borderColor = '#3B82F6';
-                    
-                    // Mostra/esconde os formulários baseado na seleção
-                    if (this.value === 'nao') {
-                        rightFormNao.classList.remove('hidden-form');
-                        rightFormSim.classList.add('hidden-form');
-                    } else {
-                        rightFormSim.classList.remove('hidden-form');
-                        rightFormNao.classList.add('hidden-form');
-                    }
-                });
-            });
-        });
-    </script>
+  <script src="../../../src/script/components/button.js"></script>
+  <script src=""></script>
 </body>
 </html>

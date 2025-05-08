@@ -1,7 +1,7 @@
 .reportsClosed{
   @apply w-full lg:w-max h-max overflow-hidden p-1;
 
-  .filters{@apply sticky z-20 overflow-visible w-full pt-3 pb-2 px-3 ml-1 border-b border-b-divisor flex flex-wrap justify-center items-center gap-1; 
+  .filters{@apply sticky z-20 overflow-visible w-full pt-3 pb-2 px-3 ml-1 border-b border-b-light-gray flex flex-wrap justify-center items-center gap-1; 
     
     .filter{@apply bg-[#333333] px-1.5 py-0.5 rounded-xl flex flex-row cursor-pointer;}
   }

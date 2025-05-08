@@ -5,10 +5,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* Components */
-@import "../components/navbar.css";
+@import "../components/navBar.css";
 @import "../components/header.css";
-@import "../components/main.css";
+@import "../components/main-component.css";
 
+@import "../components/input-component.css";
+@import "../components/radio-component.css";
+@import "../components/buttonForm-component.css";
+@import "../components/highlightLine-component.css";
 @import "../components/report.css";
 @import "../components/tag.css";
 @import "../components/status.css";
@@ -25,13 +29,15 @@
 @theme {
     --color-dark-black: #121212;
     --color-charcoal-black: #1E1E1E;
-    --color-sapphire-blue: #1F3A93;
-    --color-light-blue: #3A64B7;
+
     --color-dark-gray: #2A2A2A;
+    --color-near-black: #2C2C2E;
+    --color-filter: #333333;
     --color-gainsboro: #D9D9D9;
     --color-light-gray: #E0E0E0;
-    --color-divisor: #2C2C2E;
-    --color-filter: #333333;
+
+    --color-sapphire-blue: #1F3A93;
+    --color-light-blue: #3A64B7;
 
     /* Status colors */
     --color-status-new: #2D72B8;
@@ -40,6 +46,7 @@
     --color-status-resolved: #2ECC71;
     --color-status-aproved: #27AE60;
     --color-status-rejected: #E74C3C;
+
     /* Department colors */
     --color-department-housing: #7F5A36;
     --color-department-works: #5D6D7E;
@@ -48,30 +55,13 @@
     --color-department-education: #2980B9;
     --color-department-transport: #1ABC9C;
 
-
-
+    /* size */
+    --navBar-width: 60px;
+    /* Spacing  */
     --spacing: 8px;
 }
 
 
 body{
     @apply bg-dark-black;
-}
-
-
-
-
-
-.mainContainer{
-    @apply fixed right-0 bottom-4 lg:bottom-0 
-            w-full bg-charcoal-black rounded-t-xl 
-            flex-1 justify-center items-center;
-
-    height: calc(100vh - 58px - 97px);
-
-    @media (min-width: 1024px) {
-        width: calc(100% - 70px - 16px);
-        height: calc(100vh - 100px);
-        border-radius: 8px 0 0 0;
-      }
 }

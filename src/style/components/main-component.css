@@ -1,6 +1,8 @@
 .mainContainer{
     @apply fixed right-0 bottom-4 lg:bottom-0 
-            w-full bg-charcoal-black rounded-t-xl;
+            w-full bg-charcoal-black rounded-t-xl
+            flex items-start
+            ;
 
     height: calc(100vh - 58px - 97px);
 

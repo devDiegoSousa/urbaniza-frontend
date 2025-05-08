@@ -1,0 +1,5 @@
+@layer components {
+    .highlightLine{
+        @apply border-b-2 border-b-sapphire-blue;
+    }
+}
