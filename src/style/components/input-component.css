@@ -1,6 +1,10 @@
 @layer components {    
+    .labelBasic{
+        @apply text-2xl text-white font-bold;
+    }
+
     .inputBasic{
-        @apply w-[313px] py-1 px-1 mt-1 mb-2 rounded-xl text-base text-white font-normal bg-near-black;
+        @apply w-[313px] max-w-max py-1 px-1 mt-1 mb-2 rounded-xl text-base text-white font-normal bg-near-black;
     }
     .inputBasic:focus {
         outline: none; /* Remove a linha de contorno padrão */

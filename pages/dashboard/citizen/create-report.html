@@ -34,30 +34,50 @@
       <h1 class="title">DENÚNCIAR</h1>
   </header>
   <main class="mainContainer flex flex-col justify-between">
-      <div class="w-full h-max flex flex-col justify-center items-center md:flex-row px-1.5 pt-5 md:pt-3">
+      <div class="w-full h-max flex flex-col justify-center items-center md:flex-row px-1.5 pt-5 md:pt-1.5">
           <!-- Report info form -->
-          <section class=" h-full lg:w-1/2 pl-2 lg:pl-5 lg:pt-3 text-white flex flex-col initialPageForm"> 
-              <p class="text-white text-2xl font-bold highlightLine w-max">Título da denúncia</p>
-              <input class="inputBasic" placeholder="Insira o título"></input>
-  
-              <p class="text-white text-2xl font-bold highlightLine w-max">Descrição</p>
-              <textarea name="" id="" class="inputBasic textInput" maxlength="255" placeholder="Escreva um pouco sobre a denúncia a ser feita. Coloque informações importantes."></textarea>
-  
-              <p class="text-white text-2xl font-bold mb-2 highlightLine w-max">Deseja se identificar?</p>
-              <div class="flex flex-row gap-3 w-full lg:w-[138px]">
-                  <label class="flex items-center">
-                      <span class="mr-1">Sim</span>
-                      <input type="radio" name="option" value="yes" class="radioInput">
-                  </label>
-                  <label class="flex items-center">
-                      <span class="ml-5 mr-1">Não</span>
-                      <input type="radio" name="option" value="No" class="radioInput">
-                  </label>
+          <section class=" h-full lg:w-1/2 pl-2 lg:pl-5 text-white flex flex-col initialPageForm"> 
+            <p class="text-white text-2xl font-bold highlightLine w-max">Título da denúncia</p>
+            <input id="setReportTitle" class="inputBasic" placeholder="Insira o título"></input>
+
+            <p class="text-white text-2xl font-bold highlightLine w-max">Descrição</p>
+            <textarea name="" id="setReportDescription" class="inputBasic textInput" maxlength="255" placeholder="Escreva um pouco sobre a denúncia a ser feita. Coloque informações importantes."></textarea>
+
+            <div class="flex flex-row gap-3 w-full lg:w-[138px] pb-2">
+              <div>
+                <p class="pb-1 text-white text-2xl font-bold w-max">Departamento</p>
+                <select id="sertReportDepartment" class="selectForm">
+                  <option selected value="1">Escolha um departamento</option>
+                  <option value="2">Obras</option>
+                  <option value="3">Saúde</option>
+                  <option value="4">Opera</option>
+                </select>
               </div>
+              <div>
+                <p class="pb-1 text-white text-2xl font-bold w-max">Segmento</p>
+                <select id="setReportSegment" class="selectForm">
+                  <option selected="">Escolha um segmento</option>
+                  <option value="1">Centro</option>
+                  <option value="2">Caucaia do Alto</option>
+                  <option value="3">Granja Vianna</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-white text-2xl font-bold mb-2 highlightLine w-max">Deseja se identificar?</p>
+            <div class="flex flex-row gap-3 w-full lg:w-[138px]">
+                <label class="flex items-center">
+                    <span class="mr-1">Sim</span>
+                    <input type="radio" name="option" value="yes" class="radioInput identifyRadio">
+                </label>
+                <label class="flex items-center">
+                    <span class="ml-5 mr-1">Não</span>
+                    <input type="radio" name="option" value="No" class="radioInput identifyRadio">
+                </label>
+            </div>
           </section>
 
           <!-- Report location form -->
-          <section class="w-max md:w-full h-full lg:w-1/2 lg:pl-5 lg:pt-3 text-white flex-col hidden md:flex secondPageForm">
+          <section class="w-max md:w-full h-full lg:w-1/2 lg:pl-5 text-white flex-col hidden md:flex secondPageForm">
               <p class="text-white text-2xl font-bold highlightLine w-max">Logradouro</p>
               <input class="inputBasic" placeholder="Insira o título"></input>
   
@@ -68,7 +88,13 @@
               <input class="inputBasic" placeholder="Insira o título"></input>
   
               <p class="text-white text-2xl font-bold highlightLine w-max">Região</p>
-              <input class="inputBasic" placeholder="Insira o título"></input>
+              <div class="w-full max-w-sm min-w-[200px]">      
+                <select class="selectForm">
+                  <option selected="">Escolha uma regional</option>
+                  <option value="1">Centro</option>
+                  <option value="2">Caucaia do Alto</option>
+                  <option value="3">Granja Vianna</option>
+                </select>
           </section>
       </div>
       <div class="w-full py-5 flex justify-center items-center mt-5 mb-10 lg:mt-0">
