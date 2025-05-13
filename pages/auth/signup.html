@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tela de Cadastro</title>
   <link href="../../src/style/global/output.css" rel="stylesheet" />
-  <script defer src="script.js"></script>
+  <script defer type="module" src="../../src/script/pages/signup.js"></script>
 </head>
 <body class="h-screen w-screen">
   <main class="flex flex-col lg:flex-row min-h-screen">
@@ -25,33 +25,35 @@
           <div class="flex flex-col">
             <label for="name" class="labelBasic">Nome</label>
             <input type="text" id="name" name="name" placeholder="Digite seu nome" class="inputBasic" required/>
+            <span id="errorName" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
           </div>
 
           <div class="flex flex-col">
             <label for="lastName" class="labelBasic">Sobrenome</label>
             <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" class="inputBasic" required/>
           </div>
+          <span id="errorLastName" class="text-red-500 text-sm mt-[-10px] mb-1"></span>
         </div>
 
         <!-- Campo Email -->
         <div class="flex flex-col">
-          <label for="setEmail" class="labelBasic">Email</label>
-          <input type="text" id="setEmail" name="setEmail" placeholder="Digite seu Email" class="inputBasic" required/>
-          <span id="erroSenha" class="text-red-500 text-sm"></span>
+          <label for="email" class="labelBasic">Email</label>
+          <input type="text" id="email" name="email" placeholder="Digite seu Email" class="inputBasic" required/>
+          <span id="errorEmail" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
           
         <!-- Campo Password -->
         <div class="flex flex-col">
           <label for="password" class="labelBasic">Senha</label>
           <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic" required/>
-          <span id="erroSenha" class="text-red-500 text-sm"></span>
+          <span id="errorPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
         
         <!-- Campo Confirm Senha -->
         <div class="flex flex-col">
           <label for="confirmPassword" class="labelBasic">Confirme sua senha</label>
           <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" class="inputBasic" required/>
-          <span id="erroConfirmarSenha" class="text-red-500 text-sm"></span>
+          <span id="errorConfirmPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
         <!-- Action buttons -->
         <div class="flex gap-1 justify-center items-center mt-2">
