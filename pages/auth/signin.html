@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tela de Login</title>
+    <link href="../../src/style/global/output.css" rel="stylesheet" />
+    <script defer type="module" src="../../src/script/pages/signin.js"></script>
+  </head>
+  <body class="h-screen w-screen font-sans bg-gray-50">
+    <div class="flex h-full">
+      <!-- Coluna da esquerda -->
+      <div class="flex w-1/2 items-center justify-center bg-gray-800">
+        <h2 class="text-7xl font-semibold text-white">Seja Bem-Vindo</h2>
+      </div>
+
+      <!-- Coluna da direita -->
+      <div class="authContainer">
+        <!-- Título do formulário -->
+        <h1 class="mb-4 text-3xl font-bold text-white">Faça login</h1>
+
+        <form action="#" class="authForm">
+          <!-- Campo Email -->
+          <div class="flex flex-col">
+            <label for="email" class="labelBasic">Email</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" class="inputBasic" required/>
+            <span id="errorEmail" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="flex flex-col">
+            <label for="password" class="labelBasic">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic" required/>
+            <span id="errorPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="flex gap-1 justify-center items-center mt-2">
+            <button type="submit" class="buttonForm submitButton">Faça login</button>
+            <span class="text-white">ou</span>
+            <button class="buttonForm secondButton">
+              <a href="./signup.html" class="w-full h-full">
+                Registre-se
+              </a>
+            </button>
+          </div>
+            <!-- Link Esqueci minha senha -->
+          <div class="text-center mt-2">
+                <a href="./reset-password.html" class="text-sm text-gray-200 hover:underline">
+                Esqueci minha senha
+                </a>
+            </div>  
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

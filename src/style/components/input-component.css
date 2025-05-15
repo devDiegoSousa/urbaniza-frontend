@@ -1,6 +1,6 @@
 @layer components {    
     .labelBasic{
-        @apply text-2xl text-white font-bold;
+        @apply text-2xl text-white font-semibold;
     }
 
     .inputBasic{

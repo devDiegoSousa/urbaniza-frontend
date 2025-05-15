@@ -1,10 +1,10 @@
 import ValidateInput from '../components/input/validateInput.js';
-import inputError from '../components/input/inputError.js';
-import form from '../components/form.js'
+import InputError from '../components/input/inputError.js';
+import FormSchema from '../components/form.js';
 
 
 function validateForm() {
-  const name = document.getElementById("name").value.trim();
+  const firstName = document.getElementById("name").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
@@ -12,14 +12,14 @@ function validateForm() {
   let hasError = false; // Controla a existencia de erros
 
   const validate = new ValidateInput();
-  const displayError = new inputError();
+  const displayError = new InputError();
 
   // Limpa mensagens de erro anteriores
   document.getElementById("errorEmail").textContent = "";
   document.getElementById("errorPassword").textContent = "";
   document.getElementById("errorConfirmPassword").textContent = "";
   // Validação do Nome
-  if (!name) {
+  if (!firstName) {
       displayError.show("name", "Nome é obrigatório.");
       hasError = true;
   }
@@ -58,5 +58,5 @@ function validateForm() {
 }
 
 const signupForm = document.querySelector(".authForm");
-const Formulario = new form();
-Formulario.init(signupForm, validateForm, "/auth/signup");
+const Form = new FormSchema();
+Form.init(signupForm, validateForm, "/auth/signup");

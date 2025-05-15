@@ -1,9 +1,9 @@
 const urlBase = "http://localhost:8081"
 
-function Formulario() {
+function Form() {
 }
 
-Formulario.prototype.init = async function (form, validateCallback, url) {
+Form.prototype.init = async function (form, validateCallback, url) {
   if (!form) {
     console.error("Formulário não encontrado.");
     return;
@@ -43,7 +43,7 @@ Formulario.prototype.init = async function (form, validateCallback, url) {
       } catch (error) {
         // Trata erros de rede ou outros erros
         console.error("Erro de rede:", error);
-        alert("Erro de rede. Verifique sua conexão.");
+        alert("Erro ao fazer a requisição: Conferir console");
       }
     } else {
       // Se a validação falhar
@@ -52,4 +52,4 @@ Formulario.prototype.init = async function (form, validateCallback, url) {
   });
 };
 
-export default Formulario;
+export default Form;

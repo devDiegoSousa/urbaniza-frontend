@@ -24,7 +24,7 @@
         <div class="flex gap-2 flex-col md:flex-row">
           <div class="flex flex-col">
             <label for="name" class="labelBasic">Nome</label>
-            <input type="text" id="name" name="name" placeholder="Digite seu nome" class="inputBasic" required/>
+            <input type="text" id="name" name="firstName" placeholder="Digite seu nome" class="inputBasic" required/>
             <span id="errorName" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
           </div>
 
@@ -59,7 +59,11 @@
         <div class="flex gap-1 justify-center items-center mt-2">
           <button type="submit" class="buttonForm submitButton">Registre-se</button>
           <span class="text-white">ou</span>
-          <button class="buttonForm secondButton">Entre</button>
+          <button class="buttonForm secondButton">
+              <a href="./signin.html" class="w-full h-full">
+                Entrar
+              </a>
+          </button>
         </div>
       </form>
     </div>
