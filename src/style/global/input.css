@@ -1,53 +1,52 @@
 @import "tailwindcss";
-
 @tailwind utilities;
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Imports */
+@import "./imports.css";
+
+*{
+  font-family: "Lato", sans-serif;
+}
 
 @theme {
     --color-dark-black: #121212;
     --color-charcoal-black: #1E1E1E;
+
+    --color-dark-gray: #2A2A2A;
+    --color-near-black: #2C2C2E;
+    --color-filter: #333333;
+    --color-gainsboro: #D9D9D9;
+    --color-light-gray: #E0E0E0;
+
     --color-sapphire-blue: #1F3A93;
+    --color-light-blue: #3A64B7;
+
+    /* Status colors */
+    --color-status-new: #2D72B8;
+    --color-status-analyzing: #F39C12;
+    --color-status-correcting: #E67E22;
+    --color-status-resolved: #2ECC71;
+    --color-status-aproved: #27AE60;
+    --color-status-rejected: #E74C3C;
+
+    /* Department colors */
+    --color-department-housing: #7F5A36;
+    --color-department-works: #5D6D7E;
+    --color-department-health: #27AE60;
+    --color-department-civilDefense: #D35400;
+    --color-department-education: #2980B9;
+    --color-department-transport: #1ABC9C;
+
+    /* size */
+    --navBar-width: 60px;
+    /* Spacing  */
     --spacing: 8px;
 }
 
 
 body{
     @apply bg-dark-black;
-}
-
-.navBar {
-    @apply bg-sapphire-blue w-screen lg:w-[70px] h-[49px] lg:h-screen py-1 lg:py-2 flex lg:flex-col gap-3 lg:gap-0 justify-center lg:justify-between items-center lg:items-center fixed lg:relative bottom-0;
-
-    .cityLogo {
-        @apply hidden lg:flex;
-      }
-
-    .ul-main-nav {
-      @apply flex lg:flex-col gap-3;
-    }
-
-    .ul-config-nav {
-      @apply flex lg:flex-col gap-3 lg:gap-2;
-    }
-}
-
-.mainHeader{
-    @apply fixed top-0 right-0 w-full lg:h-[74px] py-2 lg:py-0 bg-charcoal-black lg:rounded-bl-lg flex justify-center items-center;
-
-    @media (min-width: 1024px) {
-        width: calc(100% - 70px - 16px);
-      }
-
-    .title{
-        @apply text-white text-[28px] lg:text-[32px] font-bold;
-    }
-}
-
-.mainContainer{
-    @apply fixed right-0 bottom-4 lg:bottom-0 w-full bg-charcoal-black rounded-t-xl flex-1 overflow-auto justify-center items-center;
-    height: calc(100vh - 58px - 97px);
-
-    @media (min-width: 1024px) {
-        width: calc(100% - 70px - 16px);
-        border-radius: 8px 0 0 0;
-      }
 }

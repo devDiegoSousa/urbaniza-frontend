@@ -1,0 +1,14 @@
+.dropdown {
+  @apply relative min-w-max;
+
+  summary{
+    @apply list-none flex gap-1;
+  }
+
+  ul{
+    @apply absolute top-full left-0 mt-1 z-40 bg-white shadow-lg rounded p-2;
+
+    min-width: max-content;
+    max-width: 90vw;
+  }
+}

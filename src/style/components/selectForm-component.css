@@ -1,0 +1,10 @@
+@layer components {
+
+    .selectForm{
+        @apply py-1 px-1 pe-9 block w-max border-gray-200 rounded-full text-sm 
+        focus:border-blue-500 focus:ring-blue-500 
+        disabled:opacity-50 disabled:pointer-events-none 
+        bg-near-black border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600;
+    }
+    
+}

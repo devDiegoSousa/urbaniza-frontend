@@ -1,0 +1,27 @@
+/* 
+====================
+|    COMPONENTS    |
+====================
+*/
+@import "../components/navBar.css";
+@import "../components/header.css";
+@import "../components/main-component.css";
+
+@import "../components/input-component.css";
+@import "../components/radio-component.css";
+@import "../components/buttonForm-component.css";
+@import "../components/selectForm-component.css";
+@import "../components/highlightLine-component.css";
+@import "../components/report.css";
+@import "../components/tag.css";
+@import "../components/status.css";
+@import "../components/dropdown.css";
+
+@import "../components/authForm-component.css";
+
+/* 
+===============
+|    PAGES    |
+===============
+*/
+@import "../pages/my-reports.css";

@@ -1,0 +1,30 @@
+.reportsClosed{
+  @apply w-full lg:w-max h-max overflow-hidden p-1;
+
+  .filters{@apply sticky z-20 overflow-visible w-full pt-3 pb-2 px-3 ml-1 border-b border-b-light-gray flex flex-wrap justify-center items-center gap-1; 
+    
+    .filter{@apply bg-[#333333] px-1.5 py-0.5 rounded-xl flex flex-row cursor-pointer;}
+  }
+  .reportsContainer{@apply z-10 pt-2 md:pb-15 sm:px-1 lg:px-4 h-[600px] overflow-y-auto flex flex-col items-center;}
+
+  /* Estilização da barra de rolagem vertical */
+  .reportsContainer::-webkit-scrollbar {width: 8px;}
+
+  .reportsContainer::-webkit-scrollbar-track {
+    background-color: var(--color-charcoal-black);
+    border-radius: 4px;
+  }
+
+  .reportsContainer::-webkit-scrollbar-thumb {
+    background-color: var(--color-divisor); 
+    border-radius: 4px;
+  }
+
+  .reportsContainer::-webkit-scrollbar-thumb:hover {background-color: var(--color-divisor);}
+
+  /* Estilização para Firefox (opções mais limitadas) */
+  .reportsContainer {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-divisor) var(--color-charcoal-black);
+  }
+}

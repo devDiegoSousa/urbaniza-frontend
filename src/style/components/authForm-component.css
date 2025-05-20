@@ -1,0 +1,11 @@
+.authContainer{
+  @apply flex flex-col items-center justify-center
+      bg-charcoal-black  max-h-screen w-full lg:w-1/2 py-10 md:py-5 lg:py-0
+        overflow-y-auto;
+        
+
+  .authForm{
+  @apply h-max w-max;
+  }
+}
+

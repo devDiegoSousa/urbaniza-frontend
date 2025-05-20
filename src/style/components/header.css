@@ -1,0 +1,7 @@
+.mainHeader{
+    @apply fixed top-0 right-0 w-full lg:h-[74px] py-2 lg:py-0 bg-charcoal-black lg:rounded-bl-lg flex justify-center items-center;
+
+    @media (min-width: 1024px) {width: calc(100% - 70px - 16px);}
+
+    .title{@apply text-white text-[28px] lg:text-[32px] font-bold;}
+}

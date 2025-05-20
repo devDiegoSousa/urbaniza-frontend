@@ -11,35 +11,119 @@
     <title>Urbaniza | Denúncie</title>
 
     <link rel="stylesheet" href="../../../src/style/global/output.css">
+    <style>
+        .hidden-form {
+            display: none;
+        }
+        .region-select {
+            border-radius: 2px; 
+            background-color: #2A2A2A; 
+            padding: 8px;
+            margin-bottom: 16px;
+            width: 100%;
+        }
+        .map-image {
+            margin-top: 16px;
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body class="flex flex-col h-screen">
+  <header id="main-header" class="mainHeader">
+      <h1 class="title">DENÚNCIAR</h1>
+  </header>
+  <main class="mainContainer flex flex-col justify-between">
+      <div class="w-full h-max flex flex-col justify-center items-center md:flex-row px-1.5 pt-5 md:pt-1.5">
+          <!-- Report info form -->
+          <section class=" h-full lg:w-1/2 pl-2 lg:pl-5 text-white flex flex-col initialPageForm"> 
+            <p class="text-white text-2xl font-bold highlightLine w-max">Título da denúncia</p>
+            <input id="setReportTitle" class="inputBasic" placeholder="Insira o título"></input>
 
-    <header id="main-header" class="mainHeader">
-        <h1 class="title">DENÚNCIAR</h1>
-    </header>
-    <main class="mainContainer">
+            <p class="text-white text-2xl font-bold highlightLine w-max">Descrição</p>
+            <textarea name="" id="setReportDescription" class="inputBasic textInput" maxlength="255" placeholder="Escreva um pouco sobre a denúncia a ser feita. Coloque informações importantes."></textarea>
 
-    </main>
+            <div class="flex flex-row gap-3 w-full lg:w-[138px] pb-2">
+              <div>
+                <p class="pb-1 text-white text-2xl font-bold w-max">Departamento</p>
+                <select id="sertReportDepartment" class="selectForm">
+                  <option selected value="1">Escolha um departamento</option>
+                  <option value="2">Obras</option>
+                  <option value="3">Saúde</option>
+                  <option value="4">Opera</option>
+                </select>
+              </div>
+              <div>
+                <p class="pb-1 text-white text-2xl font-bold w-max">Segmento</p>
+                <select id="setReportSegment" class="selectForm">
+                  <option selected="">Escolha um segmento</option>
+                  <option value="1">Centro</option>
+                  <option value="2">Caucaia do Alto</option>
+                  <option value="3">Granja Vianna</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-white text-2xl font-bold mb-2 highlightLine w-max">Deseja se identificar?</p>
+            <div class="flex flex-row gap-3 w-full lg:w-[138px]">
+                <label class="flex items-center">
+                    <span class="mr-1">Sim</span>
+                    <input type="radio" name="option" value="yes" class="radioInput identifyRadio">
+                </label>
+                <label class="flex items-center">
+                    <span class="ml-5 mr-1">Não</span>
+                    <input type="radio" name="option" value="No" class="radioInput identifyRadio">
+                </label>
+            </div>
+          </section>
 
-    <nav id="nav-bar" class="navBar">
-        <div class="cityLogo">
-            <img src="../../../assets/images/Brasão_Cotia.png" alt="city logo" id="city-logo" class="lg:w-[40px] lg:h-[45px]">
-        </div>
-        <div id="main-nav">
-            <ul class="ul-main-nav">
-                <li><a href="./map.html"><img src="../../../assets/icons/Map icon.svg" alt=""></a></li>
-                <li><a href="./my-reports.html"><img src="../../../assets/icons/My-reports icon.svg" alt=""></a></li>
-                <li><a href="#"><img src="../../../assets/icons/New-report icon.svg" alt=""></a></li>
-                <li><a href="./dashboard.html"><img src="../../../assets/icons/Graph icon.svg" alt=""></a></li>
-                <li><a href="./rewards.html"><img src="../../../assets/icons/Gamification icon.svg" alt=""></a></li>
-            </ul>
-        </div>
-        <div id="config-nav">
-            <ul class="ul-config-nav">
-                <li><a href="#"><img src="../../../assets/icons/User-profile icon.svg" alt=""></a></li>
-                <li><a href="#"><img src="../../../assets/icons/Config-setting icon.svg" alt=""></a></li>
-            </ul>
-        </div>
-    </nav>
+          <!-- Report location form -->
+          <section class="w-max md:w-full h-full lg:w-1/2 lg:pl-5 text-white flex-col hidden md:flex secondPageForm">
+              <p class="text-white text-2xl font-bold highlightLine w-max">Logradouro</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Número</p>
+              <input type="number" class="inputBasic numberInput" placeholder="00.000" min="1" max="99999" maxlength="5"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Bairro</p>
+              <input class="inputBasic" placeholder="Insira o título"></input>
+  
+              <p class="text-white text-2xl font-bold highlightLine w-max">Região</p>
+              <div class="w-full max-w-sm min-w-[200px]">      
+                <select class="selectForm">
+                  <option selected="">Escolha uma regional</option>
+                  <option value="1">Centro</option>
+                  <option value="2">Caucaia do Alto</option>
+                  <option value="3">Granja Vianna</option>
+                </select>
+          </section>
+      </div>
+      <div class="w-full py-5 flex justify-center items-center mt-5 mb-10 lg:mt-0">
+          <button type="submit" id="nextButton" class="buttonForm bg-[#1F3A93] focus:ring-blue-500 active:bg-blue-700 md:hidden">Próximo</button>
+          <button type="submit" id="confirmButton" class="buttonForm bg-[#27AE60] focus:ring-green-500 active:bg-green-700 hidden md:flex">Enviar denúncia</button>
+      </div>
+  </main>
+  <nav id="nav-bar" class="navBar">
+      <div class="cityLogo">
+          <img src="../../../assets/images/Brasão_Cotia.png" alt="city logo" id="city-logo" class="lg:w-[40px] lg:h-[45px]">
+      </div>
+      <div id="main-nav">
+          <ul class="ul-main-nav">
+              <li><a href="./map.html"><img src="../../../assets/icons/Map icon.svg" alt=""></a></li>
+              <li><a href="./my-reports.html"><img src="../../../assets/icons/My-reports icon.svg" alt=""></a></li>
+              <li><a href="#"><img src="../../../assets/icons/New-report icon.svg" alt=""></a></li>
+              <li><a href="./dashboard.html"><img src="../../../assets/icons/Graph icon.svg" alt=""></a></li>
+              <li><a href="./rewards.html"><img src="../../../assets/icons/Gamification icon.svg" alt=""></a></li>
+          </ul>
+      </div>
+      <div id="config-nav">
+          <ul class="ul-config-nav">
+              <li><a href="#"><img src="../../../assets/icons/User-profile icon.svg" alt=""></a></li>
+              <li><a href="#"><img src="../../../assets/icons/Config-setting icon.svg" alt=""></a></li>
+          </ul>
+      </div>
+  </nav>
+
+  <script src="../../../src/script/components/button.js"></script>
+  <script src=""></script>
 </body>
 </html>

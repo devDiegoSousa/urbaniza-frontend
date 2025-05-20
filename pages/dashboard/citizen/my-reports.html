@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../assets/icons/favicon/site.webmanifest">
     <title>Minhas denúncias</title>
 
     <link rel="stylesheet" href="../../../src/style/global/output.css">
@@ -18,7 +22,207 @@
         <h1 class="title">MINHAS DENÚNCIAS</h1>
     </header>
     <main class="mainContainer">
+        <section id="reportsClosed" class="reportsClosed hidden lg:block">
+            <header id="filters" class="filters">
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Região</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Caucaia do Alto</li>
+                        <li>Granja Vianna</li>
+                        <li>Centro</li>
+                        <li>Panorama</li>
+                        <li>Morro</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Departamento</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Obras</li>
+                        <li>Cultura</li>
+                        <li>Meio ambiente</li>
+                        <li>Esportes</li>
+                        <li>Comunicação</li>
+                        <li>Mulheres</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Segmento</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Asfalto</li>
+                        <li>Manutenção</li>
+                        <li>Zeladoria</li>
+                        <li>Qualquer</li>
+                        <li>Outra</li>
+                        <li>Coisa</li>
+                    </ul>
+                </details>
+                <details class="filter dropdown">
+                    <summary>
+                        <p class="text-white">Status</p>
+                        <img src="../../../assets/icons/arrow-down.svg" alt="">
+                    </summary>
+                    <ul class="dropdownMenu">
+                        <li>Novo</li>
+                        <li>Em analise</li>
+                        <li>Corrigindo</li>
+                        <li>Resolvido</li>
+                        <li>Aprovado</li>
+                        <li>Rejeitado</li>
+                    </ul>
+                </details>
+            </header>
+            <div class="reportsContainer">
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
 
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região de Caucaia do Alto</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag housingTag">HABITAÇÃO</span>
+                            <span class="reportTag segmentTag">SEGUIMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus newStatus">NOVA</span>
+                    </section>
+                </div>
+
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
+
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região de Caucaia do Alto</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag worksTag">OBRAS</span>
+                            <span class="reportTag segmentTag">SEGUIMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus analyzingStatus">EM ANALISE</span>
+                    </section>
+                </div>
+
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
+
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região de Caucaia do Alto</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag healthTag">SAÚDE</span>
+                            <span class="reportTag segmentTag">SEGMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus correctingStatus">RESOLVENDO</span>
+                    </section>
+                </div>
+
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
+
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região de Caucaia do Alto</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag civilDefenseTag">DEFESA CÍVIL</span>
+                            <span class="reportTag segmentTag">SEGMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus resolvedStatus">CONCLUIDO</span>
+                    </section>
+                </div>
+
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
+
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região de Caucaia do Alto</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag educationTag">EDUCAÇÃO</span>
+                            <span class="reportTag segmentTag">SEGMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus aprovedStatus">APROVADO</span>
+                    </section>
+                </div>
+
+                <div class="report">
+                    <section class="infoContainer">
+                        <h2 class="reportTitle">Título da denúncia</h2>
+
+                        <div class="reportLocation">
+                            <p class="location">Rua dos Testes, 77</p>
+                            <p class="region">Região central</p>
+                        </div>
+                        <div class="tagContainer">
+                            <span class="reportTag transportTag">TRANSPORTE</span>
+                            <span class="reportTag segmentTag">SEGMENTO</span>
+                        </div>
+                    </section>
+                    <section class="statusContainer">
+                        <span class="currentStatus rejectedStatus">REJEITADO</span>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section class="bg-white w-full lg:w-7/12 h-[100%]">
+            <div class="py-3 px-2 bg-dark-gray flex flex-col items-center">
+                <h2 class="text-lg text-white font-bold">TITULO DA DENÚNCIA</h2>
+                <div class="flex flex-col lg:flex-row justify-between gap-1 mt-2 h-max">
+                    <img src="../../../assets/images/example.png" class="h-22 lg:h-25 lg:w-45" alt="example image">
+                    <div class="flex flex-col gap-6 lg:gap-8 pl-1 text-white h-full ">
+                        <p class="text-base text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ante nunc, malesuada sed tincidunt at, faucibus ac leo. Donec dignissim porta risus, eu scelerisque velit semper vel. Ut sagittis dignissim lectus, ut hendrerit sem maximus vel vivamus.</p>
+                        <div class="flex justify-between">
+                            <p>Nome do úsuario</p>
+                            <p>07/05/2025</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full py-3 flex flex-row justify-between py-2">
+                    <span class="currentStatus rejectedStatus">REJEITADO</span>
+                    <div class="flex flex-row gap-1 w-max">
+                        <span class="reportTag healthTag">SAÚDE</span>
+                        <span class="reportTag segmentTag">SEGMENTO</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:flex-row justify-between w-full ">
+                    <div class="w-full">
+                        <h3 class="text-2xl font-bold text-white  text-center mb-3">Localização</h3>
+                        <p class="text-xl text-white">Rua Xxxxx Xx Xxxxxxxx, 20</p>
+                        <p class="text-xl text-white">Região xx Xxxxxx</p>
+                    </div>
+                    <div class="w-full">
+                        <img src="../../../assets/images/Map-example.png" class="" alt="Map">
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <nav id="nav-bar" class="navBar">
@@ -41,5 +245,10 @@
             </ul>
         </div>
     </nav>
+
+    <script type="module">
+        import { DropdownManager } from '../../../src/script/components/dropdown/dropdownAligner.js';
+        DropdownManager.initAll();
+      </script>
 </body>
 </html>

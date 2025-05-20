@@ -1,0 +1,11 @@
+.currentStatus{
+    @apply min-w-[105px] py-[3px] px-1 bg-gainsboro rounded-lg 
+        font-bold text-lg/2 text-white
+        flex justify-center items-center;
+}
+.newStatus{@apply bg-status-new;}
+.analyzingStatus{@apply bg-status-analyzing;}
+.correctingStatus{@apply bg-status-correcting;}
+.resolvedStatus{@apply bg-status-resolved;}
+.aprovedStatus{@apply bg-status-aproved;}
+.rejectedStatus{@apply bg-status-rejected;}

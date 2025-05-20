@@ -1,0 +1,12 @@
+.reportTag{@apply rounded-xl px-1 pt-[3px] pb-[2px] text-xs text-white font-bold;}
+
+.housingTag{@apply bg-department-housing;}
+.worksTag{@apply bg-department-works;}
+.healthTag{@apply bg-department-health;}
+.civilDefenseTag{@apply bg-department-civilDefense;}
+.educationTag{@apply bg-department-education;}
+.transportTag{@apply bg-department-transport;}
+
+
+
+.segmentTag{@apply bg-gainsboro text-black;}

@@ -1,0 +1,23 @@
+@layer components {    
+    .labelBasic{
+        @apply text-2xl text-white font-semibold;
+    }
+
+    .inputBasic{
+        @apply w-[313px] max-w-max py-1 px-1 mt-1 mb-2 rounded-xl text-base text-white font-normal bg-near-black;
+    }
+    .inputBasic:focus {
+        outline: none; /* Remove a linha de contorno padrão */
+        box-shadow: none;
+        border: 2px solid var(--color-light-gray);   
+    }
+
+    .textInput{
+        @apply h-16 w-[413px] max-w-[90%];
+    }
+
+    .radioInput{@apply cursor-pointer rounded-md w-3 h-3 border-2 border-near-black appearance-none;}
+    .radioInput:checked {@apply bg-near-black border-sapphire-blue;}
+
+    .numberInput{@apply w-10}
+}
