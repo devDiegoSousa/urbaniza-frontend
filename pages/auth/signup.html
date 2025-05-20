@@ -20,17 +20,17 @@
         Realize seu cadastro
       </h1>
       <form action="#" class="authForm">
-          <!-- Name inputs -->
+
         <div class="flex gap-2 flex-col md:flex-row">
           <div class="flex flex-col">
             <label for="name" class="labelBasic">Nome</label>
-            <input type="text" id="name" name="firstName" placeholder="Digite seu nome" class="inputBasic" required/>
+            <input type="text" id="name" name="firstName" placeholder="Digite seu nome" class="inputBasic"/>
             <span id="errorName" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
           </div>
 
           <div class="flex flex-col">
             <label for="lastName" class="labelBasic">Sobrenome</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" class="inputBasic" required/>
+            <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" class="inputBasic"/>
           </div>
           <span id="errorLastName" class="text-red-500 text-sm mt-[-10px] mb-1"></span>
         </div>
@@ -38,31 +38,30 @@
         <!-- Campo Email -->
         <div class="flex flex-col">
           <label for="email" class="labelBasic">Email</label>
-          <input type="text" id="email" name="email" placeholder="Digite seu Email" class="inputBasic" required/>
+          <input type="text" id="email" name="email" placeholder="Digite seu Email" class="inputBasic"/>
           <span id="errorEmail" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
           
         <!-- Campo Password -->
         <div class="flex flex-col">
           <label for="password" class="labelBasic">Senha</label>
-          <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic" required/>
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic"/>
           <span id="errorPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
         
-        <!-- Campo Confirm Senha -->
         <div class="flex flex-col">
           <label for="confirmPassword" class="labelBasic">Confirme sua senha</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" class="inputBasic" required/>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" class="inputBasic"/>
           <span id="errorConfirmPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
         </div>
+
+
         <!-- Action buttons -->
         <div class="flex gap-1 justify-center items-center mt-2">
           <button type="submit" class="buttonForm submitButton">Registre-se</button>
           <span class="text-white">ou</span>
           <button class="buttonForm secondButton">
-              <a href="./signin.html" class="w-full h-full">
-                Entrar
-              </a>
+              <a href="./signin.html" class="w-full h-full">Entrar</a>
           </button>
         </div>
       </form>
