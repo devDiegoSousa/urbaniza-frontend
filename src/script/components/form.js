@@ -1,4 +1,4 @@
-import TokenService from '../global/TokenService.js';
+import TokenService from '../global/service/TokenService.js';
 
 
 const urlBase = "http://localhost:8282"
