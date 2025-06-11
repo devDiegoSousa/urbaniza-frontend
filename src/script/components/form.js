@@ -1,7 +1,7 @@
 import TokenService from '../global/TokenService.js';
 
 
-const urlBase = "http://localhost:8081"
+const urlBase = "http://localhost:8282"
 
 function Form() {
 }
@@ -24,7 +24,7 @@ Form.prototype.init = async function (form, validateCallback, url) {
       });
 
       try {
-        const response = await fetch(urlBase+ url, {
+        const response = await fetch(urlBase + url, {
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
@@ -42,7 +42,7 @@ Form.prototype.init = async function (form, validateCallback, url) {
           switch (url) {
             case "/auth/signin":
               TokenService.saveTokens(responseData.accessToken, responseData.refreshToken);
-              window.location.href = "/pages/dashboard/citizen/map.html";
+              window.location.href = "/pages/dashboard/citizen/my-reports.html";
               break;
             case "/auth/signup":
               window.location.href = "/pages/auth/signin.html";
@@ -66,9 +66,7 @@ Form.prototype.init = async function (form, validateCallback, url) {
         }
       } catch (error) {
         // Trata erros de rede ou outros erros
-        console.error("Erro de rede:", error);
-        console.log(error);
-
+        console.error("Network error", error);
         alert("Erro ao fazer a requisição: Conferir console");
       }
     } else {
