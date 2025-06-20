@@ -1,5 +1,5 @@
 .report{
-    @apply rounded-sm w-full bg-dark-gray px-2 py-1 mb-2 flex justify-between cursor-pointer;
+    @apply rounded-sm w-[400px] bg-dark-gray px-2 py-1 mb-2 flex justify-between cursor-pointer;
 
     .reportTitle{
         @apply text-white text-2xl font-bold;
