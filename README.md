@@ -4,6 +4,42 @@ Este é um projeto frontend utilizando **JavaScript** para a lógica de interaç
 
 ---
 
+## ✅ Itens necessários
+
+Para rodar este projeto, você precisa ter os seguintes itens instalados na sua máquina:
+- Visual Studio Code (VSCode)
+- Extensão Live Server no VSCode
+- Node.js
+
+---
+
+## 🚀 Como rodar o projeto
+
+1. **Abra o projeto no VSCode.**
+2. **Execute o Live Server**:
+   - Clique com o botão direito no arquivo `index.html` ou na tela que deseja visualizar e selecione **"Open with Live Server"**.
+3. **Inicie o Tailwind CSS:**
+   - No terminal, rode o comando:
+     ```bash
+     npm run dev
+     ```
+   - Isso vai gerar o CSS automaticamente para o projeto.
+
+---
+
+## 🖥️ Telas funcionando
+
+- Signin (Login)
+- Signup (Cadastro)
+- My Reports (Cidadão)
+- Profile (Ambos os usuários)
+- Denúncias Públicas (Órgãos Públicos)
+
+---
+
+## ✅ Observação
+Testem todas as telas antes de confirmar as que realmente estão funcionando e atualizem essa lista se necessário.
+
 ## Estrutura de Pastas
 
 ### `assets/`
