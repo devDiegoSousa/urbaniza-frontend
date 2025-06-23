@@ -3,21 +3,22 @@ const TokenService = {
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("refreshToken", refreshToken);
   },
-
-  // Recupera os tokens
-  getAccessToken: () => localStorage.getItem("accessToken"),
-  getRefreshToken: () => localStorage.getItem("refreshToken"),
-
-  // Remove os tokens (por exemplo, no logout)
   clearTokens: () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
+    localStorage.removeItem("userRole");
   },
+  
+  setUserRole: (role) => {localStorage.setItem("userRole", role)},
+  getUserRole: () => localStorage.getItem("userRole"),
 
-  // Atualiza só o accessToken (por exemplo, via refresh)
+  getAccessToken: () => localStorage.getItem("accessToken"),
+  getRefreshToken: () => localStorage.getItem("refreshToken"),
+
   updateAccessToken: (newAccessToken) => {
     localStorage.setItem("accessToken", newAccessToken);
   }
+
 };
 
 export default TokenService;

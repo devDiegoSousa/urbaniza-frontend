@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../../../../src/style/global/output.css">
+
+  <title>My profile</title>
+</head>
+<body>
+   <header id="main-header" class="mainHeader">
+    <h1 class="title">Meu perfil</h1>
+  </header>
+
+  <main class="mainContainer flex-col gap-3 pt-5 pl-4">
+    <section class="w-full h-max">
+      <div class=" rounded-[50%] w-[200px] h-[200px] bg-[#2a2a2a] flex justify-center items-center">
+        <div id="pictureEdit" class="z-50 bg-red-500 w-full h-full">
+          <img src="../../assets/icons/edit-pen.svg" alt="">
+        </div>
+        <img src="../../assets/icons/User-profile icon.svg" class="z-10 w-full h-full" alt="Profile picture">
+      </div>
+    </section>
+
+    <section class="w-full jus flex flex-wrap gap-y-5 gap-x-10">
+
+      <div class="text-white flex flex-col gap-1">
+        <h2 class="font-bold text-4xl mb-1">Informações básicas</h2>
+
+        <div class="w-[530px] justify-between px-2 py-1 flex gap-5 bg-[#2A2A2A]">
+          <p class="font-semibold text-2xl">Nome</p>
+          <div class="flex gap-2 items-center">
+            <p id="profile-name" class="text-xl"></p>
+            <button type="button" class="cursor-pointer">
+              <img src="../../assets/icons/edit-pen.svg" alt="">
+            </button>
+          </div>
+        </div>
+
+        <div class="w-[530px] bg-[#2A2A2A] justify-between px-2 py-1 flex gap-5">
+          <p class="font-semibold text-2xl">Sobrenome</p>
+          <div class="flex gap-1.5 items-center">
+            <p id="profile-lastName" class="text-xl"></p>
+            <button type="button" class="cursor-pointer">
+              <img src="../../assets/icons/edit-pen.svg" alt="">
+            </button>
+          </div>
+        </div>
+
+        <div class="w-[530px] bg-[#2A2A2A] justify-between px-2 py-1 flex gap-5">
+          <p class="font-semibold text-2xl">E-mail</p>
+          <div class="flex gap-1.5 items-center">
+            <p id="profile-email" class="text-xl"></p>
+            <button type="button" class="cursor-pointer">
+              <img src="../../assets/icons/edit-pen.svg" alt="">
+            </button>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="text-white flex flex-col gap-1">
+        <h2 class="font-bold text-4xl mb-1">Informações de identificação</h2>
+
+        <div class="w-[530px] justify-between px-2 py-1 flex gap-5 bg-[#2A2A2A]">
+          <p class="font-semibold text-2xl">Senha</p>
+          <button type="button" class="cursor-pointer items-center">
+            <p id="passwordRecoveryBtn" class="text-xl">Clique para alterar</p>
+          </button>
+        </div>
+
+        <div class="w-[530px] bg-[#2A2A2A] justify-between items-center px-2 py-1 flex gap-5">
+          <p class="font-semibold text-2xl">Role</p>
+          <p id="profile-role" class="text-xl"></p>
+        </div>
+      </div>
+
+      <div class="text-white flex flex-col gap-1">
+        <h2 class="font-bold text-4xl mb-1">Segurança</h2>
+
+        <button type="button" id="logout-button" class="cursor-pointer w-[530px] bg-[#2A2A2A] justify-center items-center px-2 py-1.5 flex gap-5">
+          <p>Sair da conta</p>
+        </button>
+        <button type="button" id="deleteAccount-button" class="cursor-pointer w-[530px] bg-[#E74C3C] justify-center items-center px-2 py-1.5 flex gap-5">
+          <p>Excluir conta</p>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div id="delete-modal" class="modal hidden absolute">
+    <div class="modal-content">
+        <h2>Confirmar Exclusão de Conta</h2>
+        <p>Por favor, insira sua senha para confirmar a exclusão da conta. Esta ação é irreversível.</p>
+        <div class="form-group">
+            <label for="delete-password">Senha:</label>
+            <input type="password" id="delete-password" required>
+        </div>
+        <div class="modal-actions">
+            <button id="confirm-delete-button" class="bg-red-500 hover:bg-red-700">Confirmar Exclusão</button>
+            <button id="cancel-delete-button" class="bg-gray-500 hover:bg-gray-700">Cancelar</button>
+        </div>
+        <p id="modal-message" class="message error hidden"></p>
+    </div>
+</div>
+
+  <nav id="nav-bar" class="navBar">
+    <div class="cityLogo">
+      <img src="	../../../../../assets/images/Brasão_Cotia.png" alt="city logo" id="city-logo" class="lg:w-[40px] lg:h-[45px]">
+    </div>
+    <div id="main-nav">
+      <ul class="ul-main-nav">
+        <li><a href="./map.html"><img src="../../../../../assets/icons/Map icon.svg" alt=""></a></li>
+        <li><a href="#"><img src="../../../../../assets/icons/My-reports icon.svg" alt=""></a></li>
+        <li><a href="./dashboard.html"><img src="	../../../../../assets/icons/Graph icon.svg" alt=""></a></li>
+      </ul>
+    </div>
+    <div id="config-nav">
+      <ul class="ul-config-nav">
+        <li><a href="#"><img src="../../../../../assets/icons/User-profile icon.svg" alt=""></a></li>
+        <li><a href="#"><img src="	../../../../../assets/icons/Config-setting icon.svg" alt=""></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script type="module" src="../../src/script/pages/profile.js"></script>
+</body>
+</html>
