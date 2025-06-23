@@ -30,11 +30,19 @@ Para rodar este projeto, você precisa ter os seguintes itens instalados na sua 
 ## 🖥️ Telas funcionando
 
 - Signin (Login)
-- Signup (Cadastro)
-- My Reports (Cidadão)
-- Profile (Ambos os usuários)
-- Denúncias Públicas (Órgãos Públicos)
+urbaniza-frontend\pages\auth\signin.html
 
+- Signup (Cadastro)
+urbaniza-frontend\pages\auth\signup.html
+
+- My Reports (Cidadão)
+urbaniza-frontend\pages\dashboard\citizen\my-reports.html
+
+- Profile (Ambos os usuários)
+urbaniza-frontend\pages\user\profile.html
+
+- Denúncias Públicas (Órgãos Públicos)
+urbaniza-frontend\pages\dashboard\department\my-reports.html
 ---
 
 ## ✅ Observação
