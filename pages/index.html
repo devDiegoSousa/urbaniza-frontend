@@ -1,47 +1,518 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Urbaniza - Sua Cidade na Palma da Mão</title>
-    
-    <link rel="stylesheet" href="../src/style/global/output.css">
-
-    </head>
-<body class="font-sans bg-gray-100 text-gray-800 min-h-screen flex flex-col">
-  <header class="bg-gray-800 text-white text-center py-20 shadow-md">
-      <h1 class="text-5xl font-bold mb-4">Urbaniza: Sua Voz Transforma a Cidade!</h1>
-      <p class="text-xl max-w-3xl mx-auto mb-8">Reporte problemas urbanos de forma rápida e ajude a construir uma cidade mais inteligente e responsiva.</p>
-      <div class="space-x-4">
-          <a href="./auth/signin.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition duration-300">Entrar</a>
-          <a href="./auth/signup.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition duration-300">Cadastre-se</a>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in",
+              "slide-up": "slideUp 0.6s ease-out",
+              float: "float 3s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body
+    class="font-sans bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 min-h-screen"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 glass transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                ></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold text-gray-800">Urbaniza</span>
+          </div>
+          <div class="hidden md:flex space-x-4">
+            <a
+              href="#features"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Como Funciona</a
+            >
+            <a
+              href="#stats"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Impacto</a
+            >
+            <a
+              href="#cta"
+              class="text-gray-700 hover:text-blue-600 transition-colors"
+              >Começar</a
+            >
+          </div>
+          <div class="flex space-x-3">
+            <a
+              href="./auth/signin.html"
+              class="px-4 py-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+              >Entrar</a
+            >
+            <a
+              href="./auth/signup.html"
+              class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105"
+              >Cadastre-se</a
+            >
+          </div>
+        </div>
       </div>
-  </header>
-  
-  <section class="py-12 px-5 text-center max-w-screen-lg mx-auto">
-      <h2 class="text-4xl font-semibold mb-8 text-blue-800">Como o Urbaniza ajuda</h2>
-      <div class="flex flex-wrap justify-center gap-8">
-          <div class="bg-white rounded-lg shadow-lg p-6 flex-1 basis-80 min-w-xs max-w-sm">
-              <h3 class="text-2xl text-blue-600 font-semibold mb-3">Reporte Rápido e Fácil</h3>
-              <p class="text-gray-700">Com poucos cliques, você envia sua denúncia com foto e localização exata. Simples e eficaz para o cidadão.</p>
-          </div>
-          <div class="bg-white rounded-lg shadow-lg p-6 flex-1 basis-80 min-w-xs max-w-sm">
-              <h3 class="text-2xl text-blue-600 font-semibold mb-3">Conexão Direta</h3>
-              <p class="text-gray-700">Sua denúncia vai direto para os departamentos responsáveis, agilizando a solução dos problemas da cidade.</p>
-          </div>
-          <div class="bg-white rounded-lg shadow-lg p-6 flex-1 basis-80 min-w-xs max-w-sm">
-              <h3 class="text-2xl text-blue-600 font-semibold mb-3">Transparência e Acompanhamento</h3>
-              <p class="text-gray-700">Acompanhe o status da sua denúncia e veja como a cidade está respondendo aos desafios urbanos.</p>
-          </div>
-          <div class="bg-white rounded-lg shadow-lg p-6 flex-1 basis-80 min-w-xs max-w-sm">
-              <h3 class="text-2xl text-blue-600 font-semibold mb-3">Cidade Inteligente</h3>
-              <p class="text-gray-700">Contribuímos para uma gestão mais eficiente, baseada em dados reais e na participação ativa da comunidade.</p>
-          </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 opacity-90"
+      ></div>
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
+        ></div>
+        <div
+          class="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
+          style="animation-delay: 1s"
+        ></div>
+        <div
+          class="absolute bottom-20 left-1/2 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
+          style="animation-delay: 2s"
+        ></div>
       </div>
-  </section>
-  <footer class="text-center py-6 bg-gray-800 text-white mt-auto">
-      <p class="text-sm">&copy; 2025 Urbaniza. Todos os direitos reservados.</p>
-      <p class="text-sm">Desenvolvido como projeto integrador na Fatec Cotia.</p>
-  </footer>
-</body>
+      <div class="relative z-10 max-w-7xl mx-auto text-center">
+        <div class="animate-fade-in">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+          >
+            Sua Voz <span class="text-yellow-300">Transforma</span><br />
+            a Cidade!
+          </h1>
+          <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            Reporte problemas urbanos de forma rápida e ajude a construir uma
+            cidade mais inteligente e responsiva.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a
+              href="./auth/signup.html"
+              class="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                ></path>
+              </svg>
+              Fazer Denúncia
+            </a>
+            <a
+              href="#features"
+              class="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Section -->
+    <section id="stats" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div class="animate-slide-up">
+            <div class="text-4xl font-bold text-blue-600 mb-2">1.2K+</div>
+            <div class="text-gray-600">Problemas Resolvidos</div>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.1s">
+            <div class="text-4xl font-bold text-purple-600 mb-2">85%</div>
+            <div class="text-gray-600">Taxa de Resolução</div>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.2s">
+            <div class="text-4xl font-bold text-indigo-600 mb-2">48h</div>
+            <div class="text-gray-600">Tempo Médio</div>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.3s">
+            <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
+            <div class="text-gray-600">Cidades Conectadas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Features Section -->
+    <section
+      id="features"
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold gradient-text mb-4">
+            Como o Urbaniza Ajuda
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Conectamos cidadãos e gestores públicos através de tecnologia
+            inteligente para criar cidades mais responsivas
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Reporte Rápido
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Com poucos cliques, você envia sua denúncia com foto e localização
+              exata. Simples e eficaz para o cidadão.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Conexão Direta
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Sua denúncia vai direto para os departamentos responsáveis,
+              agilizando a solução dos problemas da cidade.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Transparência</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Acompanhe o status da sua denúncia e veja como a cidade está
+              respondendo aos desafios urbanos.
+            </p>
+          </div>
+          <!-- Feature 4 -->
+          <div
+            class="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Cidade Inteligente
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Contribuímos para uma gestão mais eficiente, baseada em dados
+              reais e na participação ativa da comunidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Process Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Como Funciona</h2>
+          <p class="text-xl text-gray-600">Processo simples em 3 passos</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center group">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-2xl font-bold text-white">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Relate o Problema
+            </h3>
+            <p class="text-gray-600">
+              Tire uma foto, adicione a descrição e envie sua denúncia
+            </p>
+          </div>
+          <div class="text-center group">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-2xl font-bold text-white">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Acompanhe o Progresso
+            </h3>
+            <p class="text-gray-600">
+              Receba atualizações em tempo real sobre o andamento
+            </p>
+          </div>
+          <div class="text-center group">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"
+            >
+              <span class="text-2xl font-bold text-white">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">
+              Problema Resolvido
+            </h3>
+            <p class="text-gray-600">
+              Veja sua cidade melhorar com sua participação
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CTA Section -->
+    <section
+      id="cta"
+      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">
+          Pronto para Transformar sua Cidade?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8">
+          Junte-se a milhares de cidadãos que já estão fazendo a diferença
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="./auth/signup.html"
+            class="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Criar Conta Gratuita
+          </a>
+          <a
+            href="./auth/signin.html"
+            class="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all"
+          >
+            Já tenho conta
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="col-span-1 md:col-span-2">
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-2xl font-bold">Urbaniza</span>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Conectando cidadãos e gestores públicos para construir cidades
+              mais inteligentes e responsivas.
+            </p>
+            <p class="text-sm text-gray-500">
+              Desenvolvido como projeto integrador na Fatec Cotia.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Links Úteis</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Como Funciona</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Suporte</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacidade</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Termos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contato</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>devdiegosousa@gmail.com</li>
+              <li>(11) 93717-0424</li>
+              <li>Cotia, SP</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500"
+        >
+          <p>&copy; 2025 Urbaniza. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="../src/script/pages/index.js"></script>
+  </body>
 </html>

@@ -25,3 +25,19 @@
 ===============
 */
 @import "../pages/my-reports.css";
+@import "../pages/signup.css";
+
+/* 
+===============
+|  KEYFRAMES  |
+===============
+*/
+@import "../global/keyframes.css";
+
+/* 
+===============
+|    OTHERS   |
+===============
+*/
+
+@import "../global/animation.css";

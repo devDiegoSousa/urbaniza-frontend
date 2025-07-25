@@ -1,6 +1,8 @@
+let inMemoryAccessToken = "";
+
 const TokenService = {
-  saveTokens: (accessToken, refreshToken) => {
-    localStorage.setItem("accessToken", accessToken);
+  saveTokens: (refreshToken) => {
+    inMemoryAccessToken = accessToken;
     localStorage.setItem("refreshToken", refreshToken);
   },
   clearTokens: () => {
@@ -8,8 +10,10 @@ const TokenService = {
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("userRole");
   },
-  
-  setUserRole: (role) => {localStorage.setItem("userRole", role)},
+
+  setUserRole: (role) => {
+    localStorage.setItem("userRole", role);
+  },
   getUserRole: () => localStorage.getItem("userRole"),
 
   getAccessToken: () => localStorage.getItem("accessToken"),
@@ -17,8 +21,7 @@ const TokenService = {
 
   updateAccessToken: (newAccessToken) => {
     localStorage.setItem("accessToken", newAccessToken);
-  }
-
+  },
 };
 
 export default TokenService;

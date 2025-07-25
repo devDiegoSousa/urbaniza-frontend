@@ -1,76 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon/favicon-16x16.png">
-  <link rel="manifest" href="../../../assets/icons/favicon/site.webmanifest">
-  <title>Tela de Cadastro</title>
-  <link href="../../src/style/global/output.css" rel="stylesheet" />
-  <script defer type="module" src="../../src/script/pages/signup.js"></script>
-</head>
-<body class="h-screen w-screen">
-  <main class="flex flex-col lg:flex-row min-h-screen">
-    <!-- Coluna da esquerda -->
-    <div class="hidden md:flex w-full lg:w-1/2 items-center justify-center bg-gray-800">
-      <h2 class="text-7xl font-semibold text-white">Seja Bem-Vindo!</h2>
-    </div>
-    <!-- Coluna da direita -->
-    <div class="authContainer">
-      <!-- Título do formulário -->
-      <h1 class="mb-4 text-3xl font-semibold text-white">
-        Realize seu cadastro
-      </h1>
-      <form action="#" class="authForm">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../src/style/global/input.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#667eea",
+              secondary: "#764ba2",
+            },
+          },
+        },
+      };
+    </script>
+    <style></style>
+  </head>
+  <body
+    class="gradient-bg min-h-screen flex items-center justify-center p-5 font-sans"
+  >
+    <div
+      class="glass-effect rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp"
+    >
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="text-primary text-3xl font-bold mb-2">Bem-vindo!</h1>
+        <p class="text-gray-600 text-sm">Crie sua conta para começar</p>
+      </div>
 
-        <div class="flex gap-2 flex-col md:flex-row">
-          <div class="flex flex-col">
-            <label for="name" class="labelBasic">Nome</label>
-            <input type="text" id="name" name="firstName" placeholder="Digite seu nome" class="inputBasic"/>
-            <span id="errorName" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
+      <!-- Success Message -->
+      <div
+        id="successMessage"
+        class="hidden bg-green-500 text-white p-3 rounded-lg mb-4 animate-fadeIn"
+      >
+        Conta criada com sucesso! Verifique seu email.
+      </div>
+
+      <!-- Form -->
+      <form id="signupForm" class="space-y-6">
+        <!-- Nome Completo -->
+        <div class="relative">
+          <label
+            for="fullName"
+            class="block text-gray-700 font-medium text-sm mb-2"
+          >
+            Nome Completo
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            required
+            class="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white valid:border-green-500"
+            placeholder="Digite seu nome completo"
+          />
+          <div id="nameError" class="hidden text-red-500 text-xs mt-1">
+            Por favor, insira seu nome completo
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="relative">
+          <label
+            for="email"
+            class="block text-gray-700 font-medium text-sm mb-2"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white valid:border-green-500"
+            placeholder="Digite seu email"
+          />
+          <div id="emailError" class="hidden text-red-500 text-xs mt-1">
+            Por favor, insira um email válido
+          </div>
+        </div>
+
+        <!-- Senha -->
+        <div>
+          <label
+            for="password"
+            class="block text-gray-700 font-medium text-sm mb-2"
+            >Senha</label
+          >
+
+          <div class="relative">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              placeholder="Digite sua senha"
+              class="w-full px-4 py-3.5 pr-12 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white"
+            />
+
+            <span
+              onclick="togglePassword('password')"
+              class="password-toggle absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 hover:text-primary cursor-pointer"
+            >
+              <i class="fa-solid fa-eye"></i>
+            </span>
           </div>
 
-          <div class="flex flex-col">
-            <label for="lastName" class="labelBasic">Sobrenome</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Digite seu sobrenome" class="inputBasic"/>
+          <div id="strengthMeter" class="hidden mt-2">
+            <div class="strength-meter">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <div id="strengthText" class="text-xs text-gray-600 mt-1"></div>
           </div>
-          <span id="errorLastName" class="text-red-500 text-sm mt-[-10px] mb-1"></span>
+          <div id="passwordError" class="hidden text-red-500 text-xs mt-1">
+            A senha deve ter pelo menos 8 caracteres
+          </div>
         </div>
 
-        <!-- Campo Email -->
-        <div class="flex flex-col">
-          <label for="email" class="labelBasic">Email</label>
-          <input type="text" id="email" name="email" placeholder="Digite seu Email" class="inputBasic"/>
-          <span id="errorEmail" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
-        </div>
-          
-        <!-- Campo Password -->
-        <div class="flex flex-col">
-          <label for="password" class="labelBasic">Senha</label>
-          <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic"/>
-          <span id="errorPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
-        </div>
-        
-        <div class="flex flex-col">
-          <label for="confirmPassword" class="labelBasic">Confirme sua senha</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" class="inputBasic"/>
-          <span id="errorConfirmPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
+        <!-- Confirmar Senha -->
+        <div>
+          <label
+            for="confirmPassword"
+            class="block text-gray-700 font-medium text-sm mb-2"
+          >
+            Confirme sua Senha
+          </label>
+
+          <div class="relative">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              class="w-full px-4 py-3.5 pr-12 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white"
+              placeholder="Confirme sua senha"
+            />
+
+            <span
+              class="password-toggle absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 hover:text-primary cursor-pointer"
+              onclick="togglePassword('confirmPassword')"
+            >
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
+
+          <div
+            id="confirmPasswordError"
+            class="hidden text-red-500 text-xs mt-1"
+          >
+            As senhas não coincidem
+          </div>
         </div>
 
-
-        <!-- Action buttons -->
-        <div class="flex gap-1 justify-center items-center mt-2">
-          <button type="submit" class="buttonForm submitButton">Registre-se</button>
-          <span class="text-white">ou</span>
-          <button class="buttonForm secondButton">
-              <a href="./signin.html" class="w-full h-full">Entrar</a>
-          </button>
-        </div>
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full py-3.5 gradient-btn text-white font-semibold text-base rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+        >
+          Criar Conta
+        </button>
       </form>
+
+      <!-- Login Link -->
+      <div class="text-center mt-6">
+        <p class="text-gray-600 text-sm">
+          Já tem uma conta?
+          <a
+            href="../auth/signin.html"
+            class="text-primary font-medium hover:text-secondary transition-colors duration-300"
+          >
+            Faça login
+          </a>
+        </p>
+      </div>
     </div>
-  </main>
-</body>
+
+    <script src="../../src/script/pages/signup.js"></script>
+  </body>
 </html>
