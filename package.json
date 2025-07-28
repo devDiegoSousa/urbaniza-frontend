@@ -9,11 +9,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tailwindcss -i ./src/style/global/input.css -o ./src/style/global/output.css --watch --watcher=chokidar"
-    
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.5",
     "browser-sync": "^3.0.4",
-    "tailwindcss": "^4.1.5"
+    "tailwindcss": "^4.1.11"
   }
 }

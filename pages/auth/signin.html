@@ -2,62 +2,203 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#667eea",
+              secondary: "#764ba2",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../../../assets/icons/favicon/site.webmanifest">
-    <title>Tela de Login</title>
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
 
-    <link href="../../src/style/global/output.css" rel="stylesheet" />
-    <script defer type="module" src="../../src/script/pages/signin.js"></script>
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .password-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 2.2rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
-  <body class="h-screen w-screen font-sans bg-gray-50">
-    <div class="flex h-full">
-      <!-- Coluna da esquerda -->
-      <div class="flex w-1/2 items-center justify-center bg-gray-800">
-        <h2 class="text-7xl font-semibold text-white">Seja Bem-Vindo</h2>
+  <body
+    class="gradient-bg min-h-screen flex items-center justify-center p-5 font-sans"
+  >
+    <div
+      class="glass-effect rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp"
+    >
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <h1 class="text-primary text-3xl font-bold mb-2">
+          Bem-vindo de volta!
+        </h1>
+        <p class="text-gray-600 text-sm">Faça login para acessar sua conta</p>
       </div>
 
-      <!-- Coluna da direita -->
-      <div class="authContainer">
-        <!-- Título do formulário -->
-        <h1 class="mb-4 text-3xl font-bold text-white">Faça login</h1>
+      <!-- Error Message -->
+      <div
+        id="errorMessage"
+        class="hidden bg-red-500 text-white p-3 rounded-lg mb-6 animate-fadeIn"
+      >
+        <div class="flex items-center">
+          <span class="mr-2">⚠️</span>
+          <span id="errorText">Email ou senha incorretos</span>
+        </div>
+      </div>
 
-        <form action="#" class="authForm">
-          <!-- Campo Email -->
-          <div class="flex flex-col">
-            <label for="email" class="labelBasic">Email</label>
-            <input type="text" id="email" name="email" placeholder="Digite seu email" class="inputBasic" required/>
-            <span id="errorEmail" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
-          </div>
+      <!-- Success Message -->
+      <div
+        id="successMessage"
+        class="hidden bg-green-500 text-white p-3 rounded-lg mb-6 animate-fadeIn"
+      >
+        <div class="flex items-center">
+          <span class="mr-2">✓</span>
+          <span>Login realizado com sucesso!</span>
+        </div>
+      </div>
 
-          <!-- Campo Senha -->
-          <div class="flex flex-col">
-            <label for="password" class="labelBasic">Senha</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" class="inputBasic" required/>
-            <span id="errorPassword" class="text-red-500 text-sm mt-[-8px] mb-1"></span>
+      <!-- Form -->
+      <form id="loginForm" class="space-y-6">
+        <!-- Email -->
+        <div class="relative">
+          <label
+            for="email"
+            class="block text-gray-700 font-medium text-sm mb-2"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Digite seu email"
+            autocomplete="email"
+            class="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white"
+          />
+          <div id="emailError" class="hidden text-red-500 text-xs mt-1">
+            Por favor, insira um email válido
           </div>
+        </div>
 
-          <!-- Botões de Ação -->
-          <div class="flex gap-1 justify-center items-center mt-2">
-            <button type="submit" id="signin-button" class="buttonForm submitButton">Faça login</button>
-            <span class="text-white">ou</span>
-            <button class="buttonForm secondButton">
-              <a href="./signup.html" class="w-full h-full">
-                Registre-se
-              </a>
-            </button>
+        <!-- Senha -->
+        <div class="relative">
+          <label
+            for="password"
+            class="block text-gray-700 font-medium text-sm mb-2"
+            >Senha</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="Digite sua senha"
+            autocomplete="current-password"
+            class="w-full px-4 py-3.5 pr-12 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white"
+          />
+          <span
+            class="password-toggle text-gray-500 hover:text-primary"
+            onclick="togglePassword('password')"
+            >👁️</span
+          >
+          <div id="passwordError" class="hidden text-red-500 text-xs mt-1">
+            Por favor, insira sua senha
           </div>
-            <!-- Link Esqueci minha senha -->
-          <div class="text-center mt-2">
-                <a href="./reset-password.html" class="text-sm text-gray-200 hover:underline">
-                Esqueci minha senha
-                </a>
-            </div>  
-        </form>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="rememberMe"
+              class="w-4 h-4 text-primary border-2 border-gray-300 rounded focus:ring-primary focus:ring-2 transition-all duration-300"
+            />
+            <span class="ml-2 text-gray-700">Lembrar de mim</span>
+          </label>
+          <a
+            href="../auth/reset-password.html"
+            onclick="showForgotPassword()"
+            class="text-primary font-medium hover:text-secondary transition-colors duration-300"
+          >
+            Esqueceu a senha?
+          </a>
+        </div>
+
+        <!-- Login Button -->
+        <button
+          type="submit"
+          class="w-full py-3.5 gradient-btn text-white font-semibold text-base rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+        >
+          Entrar
+        </button>
+      </form>
+
+      <!-- Signup Link -->
+      <div class="text-center mt-8">
+        <p class="text-gray-600 text-sm">
+          Não tem uma conta?
+          <a
+            href="../auth/signup.html"
+            class="text-primary font-medium hover:text-secondary transition-colors duration-300"
+            >Cadastre-se</a
+          >
+        </p>
       </div>
     </div>
+    <script src="../../src/script/pages/signin.js"></script>
   </body>
 </html>
