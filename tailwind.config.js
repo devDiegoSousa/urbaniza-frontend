@@ -3,27 +3,27 @@ module.exports = {
     "./pages/**/*.{html}",
     "./src/script/global/**/*.{js}",
     "./src/script/pages/**/*.{js}",
+    "./src/style/**/*.{css}",
   ],
-  theme: {
+  themeXXX: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
     extend: {
       colors: {
-        'dark-black': '#121212',
-        primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a'
-        }
+        "dark-black": "#121212",
+        primary: "#166534",
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'float': 'float 3s ease-in-out infinite'
-      }
+        "fade-in": "fadeIn 0.5s ease-in",
+        "slide-up": "slideUp 0.6s ease-out",
+        float: "float 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
-}
+};

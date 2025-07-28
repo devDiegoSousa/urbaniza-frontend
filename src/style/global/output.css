@@ -47,7 +47,7 @@
     --color-neutral-700: oklch(37.1% 0 0);
     --color-black: #000;
     --color-white: #fff;
-    --spacing: 8px;
+    --spacing: 4px;
     --container-sm: 24rem;
     --container-md: 28rem;
     --container-3xl: 48rem;
@@ -96,25 +96,25 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-dark-black: #121212;
-    --color-charcoal-black: #1E1E1E;
-    --color-dark-gray: #2A2A2A;
-    --color-near-black: #2C2C2E;
-    --color-gainsboro: #D9D9D9;
-    --color-light-gray: #E0E0E0;
-    --color-sapphire-blue: #1F3A93;
-    --color-light-blue: #3A64B7;
-    --color-status-new: #2D72B8;
-    --color-status-analyzing: #F39C12;
-    --color-status-correcting: #E67E22;
-    --color-status-resolved: #2ECC71;
-    --color-status-aproved: #27AE60;
-    --color-status-rejected: #E74C3C;
-    --color-department-housing: #7F5A36;
-    --color-department-works: #5D6D7E;
-    --color-department-health: #27AE60;
-    --color-department-civilDefense: #D35400;
-    --color-department-education: #2980B9;
-    --color-department-transport: #1ABC9C;
+    --color-charcoal-black: #1e1e1e;
+    --color-dark-gray: #2a2a2a;
+    --color-near-black: #2c2c2e;
+    --color-gainsboro: #d9d9d9;
+    --color-light-gray: #e0e0e0;
+    --color-sapphire-blue: #1f3a93;
+    --color-light-blue: #3a64b7;
+    --color-status-new: #2d72b8;
+    --color-status-analyzing: #f39c12;
+    --color-status-correcting: #e67e22;
+    --color-status-resolved: #2ecc71;
+    --color-status-aproved: #27ae60;
+    --color-status-rejected: #e74c3c;
+    --color-department-housing: #7f5a36;
+    --color-department-works: #5d6d7e;
+    --color-department-health: #27ae60;
+    --color-department-civilDefense: #d35400;
+    --color-department-education: #2980b9;
+    --color-department-transport: #1abc9c;
   }
 }
 @layer base {
@@ -1578,7 +1578,7 @@
     }
   }
 }
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 .navBar {
   position: fixed;
   bottom: calc(var(--spacing) * 0);
@@ -2076,10 +2076,10 @@
   animation: fadeIn 0.3s ease;
 }
 .gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient( 135deg, #22c55e 0%, #16a34a 25%, #15803d 50%, #166534 75%, #14532d 100% );
 }
 .gradient-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient( 135deg, #84cc16 0%, #65a30d 30%, #16a34a 60%, #15803d 100% );
 }
 .glass-effect {
   background: rgba(255, 255, 255, 0.95);
@@ -2089,7 +2089,6 @@
 .password-toggle {
   position: absolute;
   right: 1rem;
-  top: 2.2rem;
   cursor: pointer;
   transition: color 0.3s ease;
 }
@@ -2163,9 +2162,6 @@
 }
 * {
   font-family: "Lato", sans-serif;
-}
-body {
-  background-color: var(--color-dark-black);
 }
 @property --tw-rotate-x {
   syntax: "*";
