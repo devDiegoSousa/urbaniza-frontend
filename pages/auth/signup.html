@@ -16,7 +16,7 @@
     class="gradient-bg min-h-screen flex items-center justify-center p-5 font-sans"
   >
     <div
-      class="glass-effect rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp"
+      class="rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp bg-white"
     >
       <!-- Header -->
       <div class="text-center mb-8">
@@ -30,6 +30,14 @@
         class="hidden bg-green-500 text-white p-3 rounded-lg mb-4 animate-fadeIn"
       >
         Conta criada com sucesso! Verifique seu email.
+      </div>
+
+      <!-- Error Message -->
+      <div
+        id="errorMessage"
+        class="hidden bg-red-500 text-white p-3 rounded-lg mb-4 animate-fadeIn"
+      >
+        Não foi possivel criar sua conta.
       </div>
 
       <!-- Form -->

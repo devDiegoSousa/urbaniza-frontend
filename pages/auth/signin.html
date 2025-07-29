@@ -3,82 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../src/style/global/output.css" />
     <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#667eea",
-              secondary: "#764ba2",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      @keyframes shake {
-        0%,
-        100% {
-          transform: translateX(0);
-        }
-        25% {
-          transform: translateX(-5px);
-        }
-        75% {
-          transform: translateX(5px);
-        }
-      }
 
-      .gradient-bg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-
-      .glass-effect {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      .password-toggle {
-        position: absolute;
-        right: 1rem;
-        top: 2.2rem;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body
     class="gradient-bg min-h-screen flex items-center justify-center p-5 font-sans"
   >
     <div
-      class="glass-effect rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp"
+      class="rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp bg-white"
     >
       <!-- Header -->
       <div class="text-center mb-8">
@@ -134,29 +72,24 @@
         </div>
 
         <!-- Senha -->
-        <div class="relative">
-          <label
-            for="password"
-            class="block text-gray-700 font-medium text-sm mb-2"
-            >Senha</label
-          >
+        <div class="relative flex items-center mb-2">
           <input
             type="password"
             id="password"
             name="password"
             required
             placeholder="Digite sua senha"
-            autocomplete="current-password"
             class="w-full px-4 py-3.5 pr-12 border-2 border-gray-300 rounded-xl text-base bg-white/90 outline-none transition-all duration-300 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white"
           />
           <span
-            class="password-toggle text-gray-500 hover:text-primary"
             onclick="togglePassword('password')"
-            >👁️</span
+            class="password-toggle absolute flex mb-1 items-center pr-4 text-gray-500 hover:text-primary cursor-pointer"
           >
-          <div id="passwordError" class="hidden text-red-500 text-xs mt-1">
-            Por favor, insira sua senha
-          </div>
+            <i class="fa-solid fa-eye"></i>
+          </span>
+        </div>
+        <div id="passwordError" class="hidden text-red-500 text-xs mt-1">
+          Por favor, insira sua senha
         </div>
 
         <!-- Remember Me & Forgot Password -->
