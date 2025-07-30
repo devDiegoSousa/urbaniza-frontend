@@ -4,64 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Urbaniza - Sua Cidade na Palma da Mão</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                500: "#3b82f6",
-                600: "#2563eb",
-                700: "#1d4ed8",
-                800: "#1e40af",
-                900: "#1e3a8a",
-              },
-            },
-            animation: {
-              "fade-in": "fadeIn 0.5s ease-in",
-              "slide-up": "slideUp 0.6s ease-out",
-              float: "float 3s ease-in-out infinite",
-            },
-          },
-        },
-      };
-    </script>
+
+    <link rel="stylesheet" href="../../src/style/global/output.css" />
     <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      @keyframes slideUp {
-        from {
-          transform: translateY(30px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-      .glass {
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
       .gradient-text {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         -webkit-background-clip: text;
@@ -75,14 +20,14 @@
   >
     <!-- Navigation -->
     <nav
-      class="fixed top-0 w-full z-50 glass transition-all duration-300"
+      class="fixed top-0 w-full z-50 glass-effect transition-all duration-300"
       id="navbar"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <div class="flex items-center space-x-3">
             <div
-              class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
+              class="w-10 h-10 gradient-btn rounded-lg flex items-center justify-center"
             >
               <svg
                 class="w-6 h-6 text-white"
@@ -125,18 +70,17 @@
             >
             <a
               href="./auth/signup.html"
-              class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105"
+              class="px-4 py-2 gradient-btn text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105"
               >Cadastre-se</a
             >
           </div>
         </div>
       </div>
     </nav>
+
     <!-- Hero Section -->
     <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 opacity-90"
-      ></div>
+      <div class="absolute inset-0 gradient-btn opacity-90"></div>
       <div class="absolute inset-0">
         <div
           class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"
@@ -235,7 +179,7 @@
     >
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold gradient-text mb-4">
+          <h2 class="text-4xl font-bold text-primary mb-4">
             Como o Urbaniza Ajuda
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -412,10 +356,7 @@
       </div>
     </section>
     <!-- CTA Section -->
-    <section
-      id="cta"
-      class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600"
-    >
+    <section id="cta" class="py-20 px-4 sm:px-6 lg:px-8 gradient-btn">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-4xl font-bold text-white mb-6">
           Pronto para Transformar sua Cidade?
@@ -446,7 +387,7 @@
           <div class="col-span-1 md:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
               <div
-                class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center"
+                class="w-10 h-10 gradient-btn rounded-lg flex items-center justify-center"
               >
                 <svg
                   class="w-6 h-6 text-white"
