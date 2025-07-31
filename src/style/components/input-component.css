@@ -28,6 +28,26 @@
   }
 
   .gradient-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(
+      135deg,
+      #84cc16 0%,
+      #65a30d 30%,
+      #16a34a 60%,
+      #15803d 100%
+    );
+  }
+  .btn-hover {
+    transition: all 0.3s ease;
+  }
+  .input-focus {
+    transition: all 0.3s ease;
+  }
+  .btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  }
+  .success-checkmark {
+    display: none;
+    animation: checkmark 0.6s ease-in-out;
   }
 }

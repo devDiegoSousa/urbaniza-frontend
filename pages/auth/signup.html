@@ -9,27 +9,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../src/style/global/input.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#667eea",
-              secondary: "#764ba2",
-            },
-          },
-        },
-      };
-    </script>
-    <style></style>
+
+    <link rel="stylesheet" href="../../src/style/global/output.css" />
   </head>
   <body
     class="gradient-bg min-h-screen flex items-center justify-center p-5 font-sans"
   >
     <div
-      class="glass-effect rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp"
+      class="rounded-3xl p-8 w-full max-w-md shadow-2xl animate-slideUp bg-white"
     >
       <!-- Header -->
       <div class="text-center mb-8">
@@ -43,6 +30,14 @@
         class="hidden bg-green-500 text-white p-3 rounded-lg mb-4 animate-fadeIn"
       >
         Conta criada com sucesso! Verifique seu email.
+      </div>
+
+      <!-- Error Message -->
+      <div
+        id="errorMessage"
+        class="hidden bg-red-500 text-white p-3 rounded-lg mb-4 animate-fadeIn"
+      >
+        Não foi possivel criar sua conta.
       </div>
 
       <!-- Form -->
@@ -96,7 +91,7 @@
             >Senha</label
           >
 
-          <div class="relative">
+          <div class="relative flex items-center">
             <input
               type="password"
               id="password"
@@ -108,7 +103,7 @@
 
             <span
               onclick="togglePassword('password')"
-              class="password-toggle absolute inset-y-0 right-0 flex items-center pr-4 text-gray-500 hover:text-primary cursor-pointer"
+              class="password-toggle absolute flex mb-1 items-center pr-4 text-gray-500 hover:text-primary cursor-pointer"
             >
               <i class="fa-solid fa-eye"></i>
             </span>

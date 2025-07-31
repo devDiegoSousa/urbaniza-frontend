@@ -1,5 +1,3 @@
-import
-
 const form = document.getElementById("loginForm");
 const inputs = form.querySelectorAll(
   'input[type="email"], input[type="password"]'
@@ -7,19 +5,23 @@ const inputs = form.querySelectorAll(
 const submitBtn = form.querySelector('button[type="submit"]');
 let loginAttempts = 0;
 const maxAttempts = 3;
+
 // Password visibility toggle
 function togglePassword(fieldId) {
   const field = document.getElementById(fieldId);
-  const toggle = field.nextElementSibling;
+  const span = field.nextElementSibling;
+  const spanChild = span.firstElementChild;
+  console.log(spanChild);
 
   if (field.getAttribute("type") === "password") {
     field.setAttribute("type", "text");
-    toggle.textContent = "🙈";
+    spanChild.classList.replace("fa-eye", "fa-eye-slash");
   } else {
     field.setAttribute("type", "password");
-    toggle.textContent = "👁️";
+    spanChild.classList.replace("fa-eye-slash", "fa-eye");
   }
 }
+
 // Add error state classes
 function addErrorState(field) {
   field.classList.remove("border-gray-300");
@@ -101,48 +103,53 @@ function validateField(field) {
   return isValid;
 }
 // Form submission
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener(
+  "submit",
+  function (e) {
+    e.preventDefault();
 
-  let isFormValid = true;
-  inputs.forEach((input) => {
-    if (!validateField(input)) {
-      isFormValid = false;
-    }
-  });
+    let isFormValid = true;
+    inputs.forEach((input) => {
+      if (!validateField(input)) {
+        isFormValid = false;
+      }
+    });
 
-  if (isFormValid) {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const rememberMe = document.getElementById("rememberMe").checked;
+    if (isFormValid) {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const rememberMe = document.getElementById("rememberMe").checked;
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Entrando...";
-
-    
-      } else {
-        loginAttempts++;
-
-        if (loginAttempts >= maxAttempts) {
-          showError(
-            "Muitas tentativas falharam. Tente novamente em 5 minutos."
-          );
-          // In a real app, you would implement actual lockout logic
-          setTimeout(() => {
-            loginAttempts = 0;
-          }, 300000); // 5 minutes
-        } else {
-          showError(
-            `Email ou senha incorretos. Tentativa ${loginAttempts}/${maxAttempts}`
-          );
-        }
+      if(rememberMe){
+        localStorage.setItem("email", email)
       }
 
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Entrar";
-    }, 1500);
-  }
-});
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Entrando...";
+
+
+      loginUser(email, password);
+    } else {
+      loginAttempts++;
+
+      if (loginAttempts >= maxAttempts) {
+        showError("Muitas tentativas falharam. Tente novamente em 5 minutos.");
+        // In a real app, you would implement actual lockout logic
+        setTimeout(() => {
+          loginAttempts = 0;
+        }, 300000); // 5 minutes
+      } else {
+        showError(
+          `Email ou senha incorretos. Tentativa ${loginAttempts}/${maxAttempts}`
+        );
+      }
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Entrar";
+  },
+  1500
+);
 
 // Auto-fill demo credentials on double click
 document.addEventListener("dblclick", function (e) {
@@ -162,3 +169,57 @@ document.addEventListener("keydown", function (e) {
     form.dispatchEvent(new Event("submit"));
   }
 });
+
+async function loginUser(email, password) {
+  const loginData = {
+    email: email,
+    password: password,
+  };
+
+  try {
+    const response = await fetch("http://localhost:8282/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+
+    if (response.ok) {
+      
+      const data = await response.json();
+      const accessToken = data.accessToken;
+
+      if (accessToken) {
+        localStorage.setItem("accessToken", accessToken);
+        console.log("Login bem-sucedido! AccessToken armazenado.");
+      
+        window.location.replace('/dashboard.html');
+      } else {
+        console.error("AccessToken não encontrado na resposta do servidor.");
+      }
+
+      /*
+         IMPORTANTE: O REFRESH TOKEN NO COOKIE
+         
+         Você mencionou que o refreshToken vem em um cabeçalho 'Set-Cookie'.
+         O navegador lida com isso AUTOMATICAMENTE!
+         
+         - Você NÃO PRECISA ler o cabeçalho 'Set-Cookie' com JavaScript.
+         - O navegador irá receber o cabeçalho, criar o cookie e armazená-lo.
+         - Em futuras requisições para o mesmo domínio, o navegador enviará
+           o cookie de volta para o servidor automaticamente, sem que você
+           precise fazer nada no seu código 'fetch'.
+         
+         Isso é um mecanismo de segurança, especialmente se o cookie for
+         marcado como 'HttpOnly', o que impede que ele seja acessado por JavaScript.
+      */
+
+      return data; // Retorna os dados (incluindo o token)
+  } catch (error) {
+    // Captura e exibe qualquer erro que tenha ocorrido durante o processo
+    console.error("Ocorreu um erro ao tentar fazer login:", error);
+    // Aqui você pode exibir uma mensagem de erro para o usuário na tela
+    // Ex: document.getElementById('errorMessage').textContent = error.message;
+  }
+}

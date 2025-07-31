@@ -1,27 +1,23 @@
 @import "tailwindcss";
-@tailwind utilities;
-
 /* Font */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
 /* Imports */
 @import "./imports.css";
 
 * {
-  font-family: Inter, sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 @theme {
-  --color-dark-bg: #0f1419;
-  --color-dark-card: #1a1f2e;
-  --color-dark-border: #2d3748;
-  --color-green-primary: #10b981;
-  --color-green-secondary: #065f46;
-  --color-green-light: #d1fae5;
-  --color-gray-text: #9ca3af;
-  --color-red-primary: #ef4444;
-  --color-yellow-primary: #f59e0b;
-  --color-blue-primary: #3b82f6;
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --color-primary: #166534;
 
   --color-dark-black: #121212;
   --color-charcoal-black: #1e1e1e;
@@ -55,8 +51,4 @@
   --navBar-width: 60px;
   /* Spacing  */
   --spacing: 4px;
-}
-
-body {
-  @apply bg-dark-black;
 }

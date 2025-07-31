@@ -5,10 +5,23 @@
   animation: fadeIn 0.3s ease;
 }
 .gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    #22c55e 0%,
+    #16a34a 25%,
+    #15803d 50%,
+    #166534 75%,
+    #14532d 100%
+  );
 }
 .gradient-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(
+    135deg,
+    #84cc16 0%,
+    #65a30d 30%,
+    #16a34a 60%,
+    #15803d 100%
+  );
 }
 .glass-effect {
   background: rgba(255, 255, 255, 0.95);
@@ -18,10 +31,10 @@
 .password-toggle {
   position: absolute;
   right: 1rem;
-  top: 2.2rem;
   cursor: pointer;
   transition: color 0.3s ease;
 }
+
 .strength-meter {
   height: 4px;
   background: #e5e7eb;
