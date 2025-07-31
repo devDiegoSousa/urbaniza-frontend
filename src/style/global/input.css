@@ -2,51 +2,61 @@
 @tailwind utilities;
 
 /* Font */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* Imports */
 @import "./imports.css";
 
-*{
-  font-family: "Lato", sans-serif;
+* {
+  font-family: Inter, sans-serif;
 }
 
 @theme {
-    --color-dark-black: #121212;
-    --color-charcoal-black: #1E1E1E;
+  --color-dark-bg: #0f1419;
+  --color-dark-card: #1a1f2e;
+  --color-dark-border: #2d3748;
+  --color-green-primary: #10b981;
+  --color-green-secondary: #065f46;
+  --color-green-light: #d1fae5;
+  --color-gray-text: #9ca3af;
+  --color-red-primary: #ef4444;
+  --color-yellow-primary: #f59e0b;
+  --color-blue-primary: #3b82f6;
 
-    --color-dark-gray: #2A2A2A;
-    --color-near-black: #2C2C2E;
-    --color-filter: #333333;
-    --color-gainsboro: #D9D9D9;
-    --color-light-gray: #E0E0E0;
+  --color-dark-black: #121212;
+  --color-charcoal-black: #1e1e1e;
 
-    --color-sapphire-blue: #1F3A93;
-    --color-light-blue: #3A64B7;
+  --color-dark-gray: #2a2a2a;
+  --color-near-black: #2c2c2e;
+  --color-filter: #333333;
+  --color-gainsboro: #d9d9d9;
+  --color-light-gray: #e0e0e0;
 
-    /* Status colors */
-    --color-status-new: #2D72B8;
-    --color-status-analyzing: #F39C12;
-    --color-status-correcting: #E67E22;
-    --color-status-resolved: #2ECC71;
-    --color-status-aproved: #27AE60;
-    --color-status-rejected: #E74C3C;
+  --color-sapphire-blue: #1f3a93;
+  --color-light-blue: #3a64b7;
 
-    /* Department colors */
-    --color-department-housing: #7F5A36;
-    --color-department-works: #5D6D7E;
-    --color-department-health: #27AE60;
-    --color-department-civilDefense: #D35400;
-    --color-department-education: #2980B9;
-    --color-department-transport: #1ABC9C;
+  /* Status colors */
+  --color-status-new: #2d72b8;
+  --color-status-analyzing: #f39c12;
+  --color-status-correcting: #e67e22;
+  --color-status-resolved: #2ecc71;
+  --color-status-aproved: #27ae60;
+  --color-status-rejected: #e74c3c;
 
-    /* size */
-    --navBar-width: 60px;
-    /* Spacing  */
-    --spacing: 8px;
+  /* Department colors */
+  --color-department-housing: #7f5a36;
+  --color-department-works: #5d6d7e;
+  --color-department-health: #27ae60;
+  --color-department-civilDefense: #d35400;
+  --color-department-education: #2980b9;
+  --color-department-transport: #1abc9c;
+
+  /* size */
+  --navBar-width: 60px;
+  /* Spacing  */
+  --spacing: 4px;
 }
 
-
-body{
-    @apply bg-dark-black;
+body {
+  @apply bg-dark-black;
 }
