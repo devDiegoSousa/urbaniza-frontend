@@ -1,6 +1,10 @@
+import { signupService } from "../global/service/authService.js";
+
 const form = document.getElementById("signupForm");
 const inputs = form.querySelectorAll("input");
 const submitBtn = form.querySelector('button[type="submit"]');
+const sucessMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
 
 // Password visibility toggle
 function togglePassword(fieldId) {
@@ -145,63 +149,54 @@ form.addEventListener("submit", function (e) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    console.log(firstName, surname, email, password);
+    const userDetails = {
+      firstName: firstName,
+      lastName: surname,
+      email: email,
+      password: password,
+    };
 
-    registerUser(firstName, surname, email, password);
+    signupService(userDetails)
+      .then((response) => {
+        console.log(
+          "Usuário registrado com sucesso na página de registro!",
+          response.status
+        );
+        form.reset();
+        document.getElementById("strengthMeter").classList.add("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Criar Conta";
 
-    form.reset();
-    document.getElementById("strengthMeter").classList.add("hidden");
+        sucessMessage.classList.remove("hidden");
 
-    // Simulate API call
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Criar Conta";
-    }, 2000);
+        setTimeout(() => {
+          sucessMessage.classList.add("hidden");
+
+          setTimeout(() => {
+            window.location.replace("/pages/auth/signin.html");
+          }, 2000);
+        }, 2000);
+      })
+      .catch((err) => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Criar Conta";
+
+        errorMessage.classList.remove("hidden");
+
+        if (err.response) {
+          switch (err.response.status) {
+            case 409:
+              errorMessage.textContent = "Email já cadastrado";
+              break;
+            default:
+              errorMessage.textContent = "Erro ao realizar cadastro";
+              break;
+          }
+        } else if (err.isAxiosError) {
+          errorMessage.textContent = "Erro ao enviar requisição";
+        } else {
+          errorMessage.textContent = "Erro ao realizar cadastro";
+        }
+      });
   }
 });
-
-// register requisição
-async function registerUser(name, lastName, email, password) {
-  const sucessMessage = document.getElementById("successMessage");
-  const errorMessage = document.getElementById("errorMessage");
-
-  const signupData = {
-    firstName: name,
-    lastName: lastName,
-    email: email,
-    password: password,
-  };
-
-  console.log("Json a ser enviado: " + JSON.stringify(signupData));
-
-  try {
-    const response = await fetch("http://localhost:8282/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signupData),
-    });
-
-    const data = await response;
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(errorText || `Erro ${response.status}`);
-    }
-
-    sucessMessage.classList.remove("hidden");
-    setTimeout(() => {
-      sucessMessage.classList.add("hidden");
-
-      setTimeout(() => {
-        window.location.replace("/pages/auth/signin.html");
-      }, 5000);
-    }, 5000);
-  } catch (error) {
-    errorMessage.textContent = error.message;
-    errorMessage.classList.remove("hidden");
-    setTimeout(() => {
-      errorMessage.classList.add("hidden");
-    }, 5000);
-  }
-}

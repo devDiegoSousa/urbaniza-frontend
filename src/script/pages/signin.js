@@ -1,3 +1,7 @@
+import { signinService } from "../global/service/authService.js";
+import { parseJwt } from "../global/service/TokenService.js";
+import { getToken } from "../global/service/authService.js";
+
 const form = document.getElementById("loginForm");
 const inputs = form.querySelectorAll(
   'input[type="email"], input[type="password"]'
@@ -77,6 +81,7 @@ inputs.forEach((input) => {
     validateField(this);
   });
 });
+
 function validateField(field) {
   const errorElement = document.getElementById(field.id + "Error");
   let isValid = true;
@@ -105,7 +110,7 @@ function validateField(field) {
 // Form submission
 form.addEventListener(
   "submit",
-  function (e) {
+  async function (e) {
     e.preventDefault();
 
     let isFormValid = true;
@@ -120,21 +125,54 @@ form.addEventListener(
       const password = document.getElementById("password").value;
       const rememberMe = document.getElementById("rememberMe").checked;
 
-      if(rememberMe){
-        localStorage.setItem("email", email)
+      if (rememberMe) {
+        localStorage.setItem("email", email);
       }
+
+      const userDetails = {
+        email: email,
+        password: password,
+      };
 
       submitBtn.disabled = true;
       submitBtn.textContent = "Entrando...";
 
+      const isSigninSuccessful = await signinService(userDetails);
 
-      loginUser(email, password);
+      if (isSigninSuccessful) {
+        const decodedToken = parseJwt(getToken());
+        const userRole = decodedToken ? decodedToken.role : null;
+
+        switch (userRole) {
+          case "ROLE_DEPARTMENT":
+            window.location.replace("/pages/app/department/dashboard.html");
+            break;
+
+          default:
+            window.location.replace("/pages/app/citizen/dashboard.html");
+            break;
+        }
+      } else {
+        loginAttempts++;
+
+        if (loginAttempts >= maxAttempts) {
+          showError(
+            "Muitas tentativas falharam. Tente novamente em 5 minutos."
+          );
+          setTimeout(() => {
+            loginAttempts = 0;
+          }, 300000);
+        } else {
+          showError(
+            `Email ou senha incorretos. Tentativa ${loginAttempts}/${maxAttempts}`
+          );
+        }
+      }
     } else {
       loginAttempts++;
 
       if (loginAttempts >= maxAttempts) {
         showError("Muitas tentativas falharam. Tente novamente em 5 minutos.");
-        // In a real app, you would implement actual lockout logic
         setTimeout(() => {
           loginAttempts = 0;
         }, 300000); // 5 minutes
@@ -151,17 +189,6 @@ form.addEventListener(
   1500
 );
 
-// Auto-fill demo credentials on double click
-document.addEventListener("dblclick", function (e) {
-  if (e.target.closest(".glass-effect")) {
-    document.getElementById("email").value = "admin@example.com";
-    document.getElementById("password").value = "123456";
-    showSuccess();
-    setTimeout(() => {
-      document.getElementById("successMessage").classList.add("hidden");
-    }, 2000);
-  }
-});
 // Keyboard shortcuts
 document.addEventListener("keydown", function (e) {
   // Ctrl/Cmd + Enter to submit form
@@ -186,36 +213,18 @@ async function loginUser(email, password) {
     });
 
     if (response.ok) {
-      
       const data = await response.json();
       const accessToken = data.accessToken;
 
       if (accessToken) {
         localStorage.setItem("accessToken", accessToken);
         console.log("Login bem-sucedido! AccessToken armazenado.");
-      
-        window.location.replace('/dashboard.html');
       } else {
         console.error("AccessToken não encontrado na resposta do servidor.");
       }
 
-      /*
-         IMPORTANTE: O REFRESH TOKEN NO COOKIE
-         
-         Você mencionou que o refreshToken vem em um cabeçalho 'Set-Cookie'.
-         O navegador lida com isso AUTOMATICAMENTE!
-         
-         - Você NÃO PRECISA ler o cabeçalho 'Set-Cookie' com JavaScript.
-         - O navegador irá receber o cabeçalho, criar o cookie e armazená-lo.
-         - Em futuras requisições para o mesmo domínio, o navegador enviará
-           o cookie de volta para o servidor automaticamente, sem que você
-           precise fazer nada no seu código 'fetch'.
-         
-         Isso é um mecanismo de segurança, especialmente se o cookie for
-         marcado como 'HttpOnly', o que impede que ele seja acessado por JavaScript.
-      */
-
-      return data; // Retorna os dados (incluindo o token)
+      return data;
+    }
   } catch (error) {
     // Captura e exibe qualquer erro que tenha ocorrido durante o processo
     console.error("Ocorreu um erro ao tentar fazer login:", error);

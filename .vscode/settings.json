@@ -44,5 +44,16 @@
     "**/node_modules": true,
     "**/bower_components": true,
     "**/*.code-search": true
-  }
+  },
+  "cSpell.words": [
+    "cadastro",
+    "Confirme",
+    "Conta",
+    "Criar",
+    "Crie",
+    "Erro",
+    "erros",
+    "Faça",
+    "vindo"
+  ]
 }
